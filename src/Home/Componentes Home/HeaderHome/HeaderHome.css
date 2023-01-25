@@ -1,0 +1,51 @@
+#headerPrincipal{
+    background-color: #cf0000;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tableHeaderHome{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 120%;
+}
+
+.tableHCQP{
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+#btnLoginAluno{
+    text-decoration: none;
+    color: white;
+ 
+}
+
+#buttonHeaderLogin{
+    background-color: #e02929;
+    height: 44px;
+    width: 112px;
+    font-size: 15px;
+    border-color: #e02929;
+}
+
+#tableLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+#logo{
+    width: 6%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
