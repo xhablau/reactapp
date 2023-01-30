@@ -1,28 +1,19 @@
-import LogoVermelha from '../../../img/logoVermelha.png'
-import LogoBranca from '../../../img/logoBranca.png'
-import LogoPreta from '../../../img/logoPreta.jpeg'
 import '../BodyHome/BodyHome.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import Carousel from 'react-bootstrap/Carousel';
+import CarouselBodyHome from './CarouselBodyHome';
+
+import '../BodyHome/BodyHome.css'
+import PricingTableBodyHome from './PricingTableBodyHome';
 
 
 
 function BodyHome() {
-  
+
 
     return (
-        <div>
-            <Carousel>
-                <Carousel.Item>
-                    <img src={LogoBranca} id="img" className="teste" ></img>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={LogoVermelha} id="img" className="teste" ></img>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={LogoPreta} id="img" className="teste" ></img>
-                </Carousel.Item>
-            </Carousel>
+        <div id='testea'>
+            <CarouselBodyHome />
+            <PricingTableBodyHome/>
+            
         </div>
     )
 }
