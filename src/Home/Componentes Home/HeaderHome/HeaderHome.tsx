@@ -10,6 +10,7 @@ function HeaderHome() {
     
 
     return (
+        
         <div id="headerPrincipal">
             
             <button id='buttonHeaderLogin' >   <a href="/loginUser" id='btnLoginAluno'>Área do Aluno</a> </button>
@@ -18,7 +19,7 @@ function HeaderHome() {
                 <img src={LogoBranca} id='logo'></img>
                 <div id='tableHeaderHome'>
                     <a className='tableHCQP' href="/">Home</a>
-                    <a className='tableHCQP' href="/loginUser">Contato</a>
+                    <a className='tableHCQP' href="/ContactUs">Contato</a>
                     <a className='tableHCQP' href="/AboutUs">Quem somos</a>
                     <a className='tableHCQP' href="/loginUser">Planos</a>
                 </div>
