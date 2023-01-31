@@ -17,9 +17,9 @@ function HeaderHome() {
             <div id='tableLogo'>
                 <img src={LogoBranca} id='logo'></img>
                 <div id='tableHeaderHome'>
-                    <a className='tableHCQP' href="/loginUser">Home</a>
+                    <a className='tableHCQP' href="/">Home</a>
                     <a className='tableHCQP' href="/loginUser">Contato</a>
-                    <a className='tableHCQP' href="/loginUser">Quem somos</a>
+                    <a className='tableHCQP' href="/AboutUs">Quem somos</a>
                     <a className='tableHCQP' href="/loginUser">Planos</a>
                 </div>
 

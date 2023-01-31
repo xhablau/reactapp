@@ -1,8 +1,9 @@
 import '../BodyHome/BodyHome.css'
 import CarouselBodyHome from './CarouselBodyHome';
 
-import '../BodyHome/BodyHome.css'
 import PricingTableBodyHome from './PricingTableBodyHome';
+import AboutUs from '../../About Us/AboutUS';
+import WhyHire from './WhyHire';
 
 
 
@@ -10,10 +11,15 @@ function BodyHome() {
 
 
     return (
-        <div id='testea'>
+
+        <div id='BodyHomePrincipal'>
+
             <CarouselBodyHome />
-            <PricingTableBodyHome/>
-            
+            <WhyHire />
+            <PricingTableBodyHome />
+
+
+
         </div>
     )
 }
