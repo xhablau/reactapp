@@ -13,7 +13,7 @@ function HeaderHome() {
         
         <div id="headerPrincipal">
             
-            <button id='buttonHeaderLogin' >   <a href="/loginUser" id='btnLoginAluno'>Área do Aluno</a> </button>
+            <button id='buttonHeaderLogin' >   <a href="/login" id='btnLoginAluno'>Área do Aluno</a> </button>
             
             <div id='tableLogo'>
                 <img src={LogoBranca} id='logo'></img>
@@ -21,7 +21,7 @@ function HeaderHome() {
                     <a className='tableHCQP' href="/">Home</a>
                     <a className='tableHCQP' href="/ContactUs">Contato</a>
                     <a className='tableHCQP' href="/AboutUs">Quem somos</a>
-                    <a className='tableHCQP' href="/loginUser">Planos</a>
+                    <a className='tableHCQP' href="/login">Planos</a>
                 </div>
 
             </div>
