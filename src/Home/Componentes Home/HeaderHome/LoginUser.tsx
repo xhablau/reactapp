@@ -2,7 +2,7 @@ import '../HeaderHome/LoginUser.css'
 import LogoVermelha from '../../../img/logoVermelha.png'
 import LogoBranca from '../../../img/logoBranca.png'
 import LogoPreta from '../../../img/logoPreta.jpeg'
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, FacebookAuthProvider, TwitterAuthProvider } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 
@@ -11,12 +11,61 @@ function LoginUser() {
     const navigate = useNavigate()
     const [authing, setAuthing] = useState(false)
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const emailInput = document.querySelector("#form2Example11") as HTMLInputElement;
+    const emailTxt = document.querySelector("#txtEmail") as HTMLInputElement;
+
+    const passwordInput = document.querySelector("#form2Example22") as HTMLInputElement;
+    const passwordTxt = document.querySelector("#txtPassword") as HTMLInputElement;
+
+
+    function handlePasswordReset() {
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                
+            })
+            .catch((error) => {
+                console.log("DEU RUIM", error.message);
+            });
+    };
+
+    const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password).then(() => {
+
+            console.log("oie")
+            window.location.href = '/'
+        })
+            .catch((error) => {
+                if (error.code === "auth/user-not-found") {
+                    emailInput.style.border = "1px solid red";
+                    emailTxt.innerText = "E-mail inválido";
+                    emailTxt.style.color = " red"
+                } else if (error.code === "auth/wrong-password") {
+
+                    passwordInput.style.border = "1px solid red";
+                    passwordTxt.innerText = "Senha inválida!";
+                    passwordTxt.style.color = " red"
+                } else {
+
+                    console.log(error.code)
+                }
+
+                console.log(error.code)
+            });
+
+
+    };
+
     const singInWhitGoogle = async () => {
         setAuthing(true);
 
         signInWithPopup(auth, new GoogleAuthProvider())
             .then(response => {
-                console.log(response.user.uid)
                 navigate('/')
             })
             .catch(error => {
@@ -29,7 +78,6 @@ function LoginUser() {
 
         signInWithPopup(auth, new FacebookAuthProvider())
             .then(response => {
-                console.log(response.user.uid)
                 navigate('/')
             })
             .catch(error => {
@@ -42,7 +90,7 @@ function LoginUser() {
 
         signInWithPopup(auth, new TwitterAuthProvider())
             .then(response => {
-                console.log(response.user.uid)
+
                 navigate('/')
             })
             .catch(error => {
@@ -73,8 +121,8 @@ function LoginUser() {
                                             <h4 className="mt-1 mb-5 pb-1">Nos somos BlaBlaBla</h4>
                                         </div>
 
-                                        <form>
-                                        <p>Por favor, entre com sua conta</p>
+                                        <form onSubmit={handleSignIn}>
+
                                             <div className="text-center mb-3">
                                                 <p>Entre com:</p>
                                                 <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitFacebook()} disabled={authing}>
@@ -93,26 +141,26 @@ function LoginUser() {
                                             </div>
 
                                             <p className="text-center">ou:</p>
-                                            
-                                            
+
+
 
                                             <div className="form-outline mb-4">
                                                 <input type="email" id="form2Example11" className="form-control"
-                                                    placeholder="E-mail" />
-                                                <label className="form-label" >E-mail</label>
+                                                    placeholder="E-mail" onChange={(event) => setEmail(event.target.value)} />
+                                                <div className="form-label" id='txtEmail'>E-mail</div>
                                             </div>
 
                                             <div className="form-outline mb-4">
-                                                <input type="password" id="form2Example22" className="form-control" />
-                                                <label className="form-label" >Senha</label>
+                                                <input type="password" id="form2Example22" className="form-control" onChange={(event) => setPassword(event.target.value)} />
+                                                <div className="form-label" id='txtPassword'>Senha</div >
                                             </div>
 
                                             <div className="text-center pt-1 mb-5 pb-1">
-                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button" >Log in</button>
+                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
 
-                                                <a className="text-muted" href="#!">Forgot password?</a>
+
                                             </div>
-
+                                            <button className="text-muted" onClick={handlePasswordReset}>Esqueceu a senha?</button>
                                             <div className="d-flex align-items-center justify-content-center pb-4">
                                                 <p className="mb-0 me-2">Não tem uma conta?</p>
                                                 <button type="button" className="btn btn-outline-danger" ><a href="/register">Criar nova conta</a></button>

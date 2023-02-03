@@ -7,30 +7,39 @@ function RegisterUser() {
     const [password, setPassword] = useState("");
 
     const emailInput = document.querySelector("#form2Example11") as HTMLInputElement;
-    const passwordInput = document.querySelector("#form2Example22") as HTMLInputElement;
+    const emailTxt = document.querySelector("#txtEmail") as HTMLInputElement;
 
+    const passwordInput = document.querySelector("#form2Example22") as HTMLInputElement;
+    const passwordTxt = document.querySelector("#txtPassword") as HTMLInputElement;
 
     function Cadastrar() {
       
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
            
-            const user = userCredential.user;
-            console.log("oie", user)
-           
+           // const user = userCredential.user;           
+            window.location.href = '/'
+
           })
           .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
+            const errorMessage = error.message;            
             
             if(errorCode === "auth/invalid-email"){
-                console.log("ai pai para")
+               
                 emailInput.style.border =  "1px solid red";
-                
+                emailTxt.innerText = "E-mail inválido";
+                emailTxt.style.color = " red"
+               
               
             } else if (errorCode === "auth/weak-password" ){
-                console.log("aiiin")
+               
                 passwordInput.style.border = "1px solid red";
+                passwordTxt.innerText = "Senha inválida! Usar 6 caracteres!";
+                passwordTxt.style.color = " red"
+            } else {
+                
+                console.log(errorCode)
             }
            
             
@@ -47,9 +56,7 @@ function RegisterUser() {
 
         <div className="col-xl-10" style={{ margin: "9%" }}>
             <div className="card rounded-3 text-black" >
-            <div id='teset'>
-                aqui
-            </div>
+            
 
                 <div className="card-body p-md-5 mx-md-4">
 
@@ -66,12 +73,12 @@ function RegisterUser() {
                         <div className="form-outline mb-4" >
                             <input type="email" id="form2Example11" className="form-control"
                                 placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
-                            <label className="form-label" >E-mail</label>
+                            <div className="form-label" id='txtEmail' >E-mail</div>
                         </div>
 
                         <div className="form-outline mb-4">
                             <input type="password" id="form2Example22" className="form-control" onChange={(e) => setPassword(e.target.value)}/>
-                            <label className="form-label" >Senha</label>
+                            <label className="form-label" id='txtPassword'>Senha</label>
                         </div>
 
                         <div className="text-center pt-1 mb-5 pb-1">
