@@ -1,3 +1,4 @@
+import BodyHomePage from "./BodyHomePage/BodyHomePage";
 import HeaderHomePage from "./HeaderHomePage/HeaderHomePage";
 
 
@@ -19,6 +20,7 @@ function HomePage() {
 
         <div>
             <HeaderHomePage/>
+            <BodyHomePage/>
         </div>
 
 
