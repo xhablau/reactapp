@@ -1,6 +1,7 @@
 import LogoVermelha from '../../../img/logoVermelha.png'
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { usuarios } from './LoginUser';
 
 function RegisterUser() {
     const [email, setEmail] = useState("");
@@ -12,38 +13,38 @@ function RegisterUser() {
     const passwordInput = document.querySelector("#form2Example22") as HTMLInputElement;
     const passwordTxt = document.querySelector("#txtPassword") as HTMLInputElement;
 
+
     function Cadastrar() {
-      
+
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-           
-           // const user = userCredential.user;           
-            window.location.href = '/'
+               
+            window.location.href = '/HomePage'
 
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;            
-            
-            if(errorCode === "auth/invalid-email"){
-               
-                emailInput.style.border =  "1px solid red";
-                emailTxt.innerText = "E-mail inválido";
-                emailTxt.style.color = " red"
-               
-              
-            } else if (errorCode === "auth/weak-password" ){
-               
-                passwordInput.style.border = "1px solid red";
-                passwordTxt.innerText = "Senha inválida! Usar 6 caracteres!";
-                passwordTxt.style.color = " red"
-            } else {
-                
-                console.log(errorCode)
-            }
-           
-            
-          });
+        })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                if (errorCode === "auth/invalid-email") {
+
+                    emailInput.style.border = "1px solid red";
+                    emailTxt.innerText = "E-mail inválido";
+                    emailTxt.style.color = " red"
+
+
+                } else if (errorCode === "auth/weak-password") {
+
+                    passwordInput.style.border = "1px solid red";
+                    passwordTxt.innerText = "Senha inválida! Usar 6 caracteres!";
+                    passwordTxt.style.color = " red"
+                } else {
+
+                    console.log(errorCode)
+                }
+
+
+            });
     }
 
 
@@ -56,7 +57,7 @@ function RegisterUser() {
 
         <div className="col-xl-10" style={{ margin: "9%" }}>
             <div className="card rounded-3 text-black" >
-            
+
 
                 <div className="card-body p-md-5 mx-md-4">
 
@@ -77,7 +78,7 @@ function RegisterUser() {
                         </div>
 
                         <div className="form-outline mb-4">
-                            <input type="password" id="form2Example22" className="form-control" onChange={(e) => setPassword(e.target.value)}/>
+                            <input type="password" id="form2Example22" className="form-control" onChange={(e) => setPassword(e.target.value)} />
                             <label className="form-label" id='txtPassword'>Senha</label>
                         </div>
 

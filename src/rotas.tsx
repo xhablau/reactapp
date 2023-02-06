@@ -10,12 +10,15 @@ import { initializeApp } from "firebase/app";
 import { config } from './config/config';
 import AuthRoute from './components/AuthRoute'
 import RegisterUser from './Home/Componentes Home/HeaderHome/RegisterUser'
+import HomePage from './HomePage/HomePage'
+
 
 initializeApp(config.firebaseConfig)
 
 
 
 function Rotas() {
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -31,6 +34,7 @@ function Rotas() {
         <Route path="/register" element={<RegisterUser />} />
         <Route path='/AboutUs' element={<AboutUs />} />
         <Route path='/ContactUs' element={<ContactUs />} />
+        <Route path='/HomePage' element={<HomePage />} />
         <Route path='/' element={<Home />} />
 
 

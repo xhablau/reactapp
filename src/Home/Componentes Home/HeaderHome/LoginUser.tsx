@@ -2,11 +2,42 @@ import '../HeaderHome/LoginUser.css'
 import LogoVermelha from '../../../img/logoVermelha.png'
 import LogoBranca from '../../../img/logoBranca.png'
 import LogoPreta from '../../../img/logoPreta.jpeg'
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail, User } from 'firebase/auth'
 import { useNavigate } from 'react-router'
-import { useState } from 'react'
+import React, { createContext, useContext, useState } from 'react';
+
+interface UserLogin {
+    accessToken: string;
+    auth: string[];
+    displayName: string;
+    email: string;
+    emailVerified: string;
+    isAnonymous: string;
+    metadata: string[];
+    phoneNumber: string;
+    photoURL: string;
+    proactiveRefresh: string[];
+    providerId: string;
+    providerData: string[];
+    reloadListener: string;
+    reloadUserInfo: string;
+    stsTokenManager: string;
+    tenantId: string;
+    uid: string;
+}
+
+export const usuarios = [];
+//console.log(usuarios)
+
+
+
+
 
 function LoginUser() {
+
+
+
+
     const auth = getAuth()
     const navigate = useNavigate()
     const [authing, setAuthing] = useState(false)
@@ -25,7 +56,7 @@ function LoginUser() {
 
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                
+
             })
             .catch((error) => {
                 console.log("DEU RUIM", error.message);
@@ -35,13 +66,26 @@ function LoginUser() {
     const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password).then(() => {
+        signInWithEmailAndPassword(auth, email, password).then(response => {
 
-            console.log("oie")
-            window.location.href = '/'
+            //usuarios.push(response.user.photoURL);
+
+           
+            sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
+            sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
+            sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
+            sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
+
+            //console.log("teste",usuarios)
+
+
+            window.location.href = '/HomePage'
+
+
+
         })
             .catch((error) => {
-                if (error.code === "auth/user-not-found") {
+                if (error.code === "auth/invalid-email") {
                     emailInput.style.border = "1px solid red";
                     emailTxt.innerText = "E-mail inválido";
                     emailTxt.style.color = " red"
@@ -66,7 +110,14 @@ function LoginUser() {
 
         signInWithPopup(auth, new GoogleAuthProvider())
             .then(response => {
-                navigate('/')
+
+                
+                sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
+                sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
+                sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
+                sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
+
+                window.location.href = '/HomePage'
             })
             .catch(error => {
                 console.log(error)
@@ -78,7 +129,13 @@ function LoginUser() {
 
         signInWithPopup(auth, new FacebookAuthProvider())
             .then(response => {
-                navigate('/')
+                
+                sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
+                sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
+                sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
+                sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
+
+                window.location.href = '/HomePage'
             })
             .catch(error => {
                 console.log(error)
@@ -90,8 +147,13 @@ function LoginUser() {
 
         signInWithPopup(auth, new TwitterAuthProvider())
             .then(response => {
+                
+                sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
+                sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
+                sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
+                sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
-                navigate('/')
+                window.location.href = '/HomePage'
             })
             .catch(error => {
                 console.log(error)
