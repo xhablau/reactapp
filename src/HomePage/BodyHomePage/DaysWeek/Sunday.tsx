@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import '../DaysWeek/DaysWeek.css'
 
 
 
@@ -34,10 +35,7 @@ function Sunday() {
         setIsOpen(true);
     }
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        //subtitle.style.color = '#f00';
-    }
+   
 
     function closeModal() {
         setIsOpen(false);
@@ -46,23 +44,20 @@ function Sunday() {
     return (
 
 
-        <div>
-            <div>
-                <button onClick={openModal}>Domingo</button>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                >
-                    <h2 >Biceps</h2>
-                    <button onClick={closeModal}>X</button>
-                    <a>Rosca</a>
-                    <a>Supino</a>
-                    <a>Isso ai</a>
-                    
-                </Modal>
-            </div>
+        <div className='divDays'>
+            <button onClick={openModal} className='btnDays'>Domingo</button>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+            >
+                <h2 >Treino de </h2>
+                <button onClick={closeModal}>X</button>
+                <a>Rosca</a>
+                <a>Supino</a>
+                <a>Isso ai</a>
+
+            </Modal>
         </div>
 
     )

@@ -6,50 +6,25 @@ import Sunday from './DaysWeek/Sunday';
 import Thurday from './DaysWeek/Thursday';
 import Tuesday from './DaysWeek/Tuesday';
 import Wednesday from './DaysWeek/Wednesday';
+import '../BodyHomePage/BodyHomePage.css'
+
 
 
 
 function BodyHomePage() {
 
-    const photoUser = sessionStorage.getItem('photoUser');
-    const emailUser = sessionStorage.getItem('emailUser');
-    const uidUser = sessionStorage.getItem('uidUser');
-    const displayName = sessionStorage.getItem('displayName');
+    // const photoUser = sessionStorage.getItem('photoUser');
+    // const emailUser = sessionStorage.getItem('emailUser');
+    // const uidUser = sessionStorage.getItem('uidUser');
+    // const displayName = sessionStorage.getItem('displayName');
 
-    console.log("uidUser", uidUser)
-    console.log("emailUser", emailUser)
-    console.log("photoUser", photoUser)
-    console.log("displayName", displayName)
-
-
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-        },
-    };
-
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        //subtitle.style.color = '#f00';
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
+    // console.log("uidUser", uidUser)
+    // console.log("emailUser", emailUser)
+    // console.log("photoUser", photoUser)
+    // console.log("displayName", displayName)
 
     return (
-        <div>
+        <div id='principalBodyHomePage'>
             <Monday/>
             <Tuesday/>
             <Wednesday/>
