@@ -11,6 +11,7 @@ import { config } from './config/config';
 import AuthRoute from './components/AuthRoute'
 import RegisterUser from './Home/Componentes Home/HeaderHome/RegisterUser'
 import HomePage from './HomePage/HomePage'
+import FirestoreAPI from './FirestoreApi/FirestoreApi'
 
 
 initializeApp(config.firebaseConfig)
@@ -36,7 +37,7 @@ function Rotas() {
         <Route path='/ContactUs' element={<ContactUs />} />
         <Route path='/HomePage' element={<HomePage />} />
         <Route path='/' element={<Home />} />
-
+        <Route path='/teste' element={<FirestoreAPI />} />
 
       </Routes>
     </BrowserRouter>

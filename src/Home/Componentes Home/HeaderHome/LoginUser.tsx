@@ -2,7 +2,7 @@ import '../HeaderHome/LoginUser.css'
 import LogoVermelha from '../../../img/logoVermelha.png'
 import LogoBranca from '../../../img/logoBranca.png'
 import LogoPreta from '../../../img/logoPreta.jpeg'
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail, User } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import React, { createContext, useContext, useState } from 'react';
 
