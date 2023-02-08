@@ -6,17 +6,10 @@ import '../DaysWeek/DaysWeek.css'
 
 
 
-function Tuesday() {
+function Tuesday(props: { propsTuesday: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
 
-    const photoUser = sessionStorage.getItem('photoUser');
-    const emailUser = sessionStorage.getItem('emailUser');
-    const uidUser = sessionStorage.getItem('uidUser');
-    const displayName = sessionStorage.getItem('displayName');
 
-    console.log("uidUser", uidUser)
-    console.log("emailUser", emailUser)
-    console.log("photoUser", photoUser)
-    console.log("displayName", displayName)
+
 
 
     const customStyles = {
@@ -34,6 +27,7 @@ function Tuesday() {
 
     function openModal() {
         setIsOpen(true);
+        console.log(props.propsTuesday)
     }
 
    
@@ -51,6 +45,7 @@ function Tuesday() {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
+                ariaHideApp={false}
             >
                 <h2 >Biceps</h2>
                 <button onClick={closeModal}>X</button>

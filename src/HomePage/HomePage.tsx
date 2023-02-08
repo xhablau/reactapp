@@ -2,31 +2,19 @@ import BodyHomePage from "./BodyHomePage/BodyHomePage";
 import HeaderHomePage from "./HeaderHomePage/HeaderHomePage";
 
 
+export const photoUser = JSON.parse(sessionStorage.getItem('photoUser') || '{}');
+export const emailUser = JSON.parse(sessionStorage.getItem('emailUser') || '{}');
+export const uidUser = JSON.parse(sessionStorage.getItem('uidUser') || '{}');
+export const displayName = JSON.parse(sessionStorage.getItem('displayName') || '{}');
 
 function HomePage() {
-   
-    const photoUser = sessionStorage.getItem('photoUser');
-    const emailUser = sessionStorage.getItem('emailUser');
-    const uidUser = sessionStorage.getItem('uidUser');
-    const displayName = sessionStorage.getItem('displayName');
-    
-    console.log("uidUser",uidUser)
-    console.log("emailUser",emailUser)
-    console.log("photoUser",photoUser)
-    console.log("displayName",displayName)
 
     return (
-
 
         <div>
             <HeaderHomePage/>
             <BodyHomePage/>
         </div>
-
-
-
-
-
 
     )
 }

@@ -6,28 +6,8 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPasswor
 import { useNavigate } from 'react-router'
 import React, { createContext, useContext, useState } from 'react';
 
-interface UserLogin {
-    accessToken: string;
-    auth: string[];
-    displayName: string;
-    email: string;
-    emailVerified: string;
-    isAnonymous: string;
-    metadata: string[];
-    phoneNumber: string;
-    photoURL: string;
-    proactiveRefresh: string[];
-    providerId: string;
-    providerData: string[];
-    reloadListener: string;
-    reloadUserInfo: string;
-    stsTokenManager: string;
-    tenantId: string;
-    uid: string;
-}
 
-export const usuarios = [];
-//console.log(usuarios)
+
 
 
 
@@ -68,15 +48,12 @@ function LoginUser() {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password).then(response => {
 
-            //usuarios.push(response.user.photoURL);
 
            
             sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
             sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
             sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
-
-            //console.log("teste",usuarios)
 
 
             window.location.href = '/HomePage'

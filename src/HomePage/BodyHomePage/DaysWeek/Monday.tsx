@@ -1,21 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import '../DaysWeek/DaysWeek.css'
 
 
 
-function Monday() {
-
-    const photoUser = sessionStorage.getItem('photoUser');
-    const emailUser = sessionStorage.getItem('emailUser');
-    const uidUser = sessionStorage.getItem('uidUser');
-    const displayName = sessionStorage.getItem('displayName');
-
-    console.log("uidUser", uidUser)
-    console.log("emailUser", emailUser)
-    console.log("photoUser", photoUser)
-    console.log("displayName", displayName)
+function Monday(props: { propsMonday: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
 
 
     const customStyles = {
@@ -29,9 +19,11 @@ function Monday() {
         },
     };
 
+    
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     function openModal() {
+        console.log(props.propsMonday)
         setIsOpen(true);
     }
 
@@ -39,8 +31,9 @@ function Monday() {
 
     function closeModal() {
         setIsOpen(false);
+        console.log(props.propsMonday)
     }
-
+    
     return (
 
 
@@ -50,10 +43,11 @@ function Monday() {
                 isOpen={modalIsOpen}                
                 onRequestClose={closeModal}
                 style={customStyles}
+                ariaHideApp={false}
             >
                 <h2 >Biceps</h2>
                 <button onClick={closeModal} >X</button>
-                <a>Rosca</a>
+                <a>Rosca {props.propsMonday}</a>
                 <a>Supino</a>
                 <a>Isso ai</a>
 

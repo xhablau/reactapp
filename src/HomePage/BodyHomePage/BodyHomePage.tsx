@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Friday from './DaysWeek/Friday';
 import Monday from './DaysWeek/Monday';
 import Saturday from './DaysWeek/Saturday';
@@ -7,6 +7,7 @@ import Thurday from './DaysWeek/Thursday';
 import Tuesday from './DaysWeek/Tuesday';
 import Wednesday from './DaysWeek/Wednesday';
 import '../BodyHomePage/BodyHomePage.css'
+import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
 
 
 
@@ -23,15 +24,55 @@ function BodyHomePage() {
     // console.log("photoUser", photoUser)
     // console.log("displayName", displayName)
 
+    async function main() {
+        const data = await getDataFromFirestore();
+        return data
+    }
+    
+ 
+    const [monday, setMonday] = useState([]);
+    const [tuesday, setTuesday] = useState([]);
+    const [wednesday, setWednesday] = useState([]);
+    const [thurday, setThurday] = useState([]);
+    const [friday, setFriday] = useState([]);
+    const [saturday, setSaturday] = useState([]);
+    const [sunday, setSunday] = useState([]);
+    const [diet, setDiet] = useState([]);
+ 
+ 
+    
+    useEffect(() => {
+        const getAllDays = async () => {
+          try {
+            let response = await main();            
+            setMonday(response.monday);
+            setTuesday(response.tuesday);
+            setWednesday(response.wednesday);
+            setThurday(response.thurday);
+            setFriday(response.friday);
+            setSaturday(response.saturday);
+            setSunday(response.sunday);
+            setDiet(response.diet);
+      
+          } catch (error) {
+            console.log(error);
+          }
+        };
+      
+        // call your async function
+        getAllDays();
+      }, []);
+      
+
     return (
         <div id='principalBodyHomePage'>
-            <Monday/>
-            <Tuesday/>
-            <Wednesday/>
-            <Thurday/>
-            <Friday/>
-            <Saturday/>
-            <Sunday/>
+            <Monday propsMonday = {monday}/>
+            <Tuesday propsTuesday = {tuesday}/>
+            <Wednesday propsWednesday = {wednesday}/>
+            <Thurday propsThurday = {thurday}/>
+            <Friday propsFriday = {friday}/>
+            <Saturday propsSaturday = {saturday}/>
+            <Sunday propsSunday = {sunday}/>
         </div>
 
 
