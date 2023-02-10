@@ -1,11 +1,9 @@
 import '../HeaderHomePage/HeaderHomePage.css'
-import { displayName, photoUser } from '../HomePage'
 
 
 
-function HeaderHomePage() {
-    displayName;
-    photoUser;
+function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; displayName: any; }) {
+    const { photoUser, emailUser, uidUser, displayName } = props;
 
     return (
 

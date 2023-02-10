@@ -6,7 +6,7 @@ import '../DaysWeek/DaysWeek.css'
 
 
 
-function Thurday(props: { propsThurday: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
+function Thurday(props: { propsThursday: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
 
 
 
@@ -25,7 +25,7 @@ function Thurday(props: { propsThurday: string | number | boolean | React.ReactE
 
     function openModal() {
         setIsOpen(true);
-        console.log(props.propsThurday)
+        console.log(props.propsThursday)
     }
 
   
