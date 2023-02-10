@@ -18,7 +18,6 @@ function BodyHomePage() {
   const [saturday, setSaturday] = useState([]);
   const [sunday, setSunday] = useState([]);
   const [diet, setDiet] = useState([]);
-
   useEffect(() => {
     const getAllDays = async () => {
       try {

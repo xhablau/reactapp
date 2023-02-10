@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import '../DaysWeek/DaysWeek.css'
+import '../DaysWeek/DaysWeek.css';
 
+interface PropsTueday {
+    propsTuesday: Array<{
+        Peito?: Array<string | number | boolean>;
+        Triceps?: Array<string | number | boolean>;
+        Perna?: Array<string | number | boolean>;
+    }>;
+}
 
-
-
-function Tuesday(props: { propsTuesday: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) {
-
-
-
-
-
+const Tuesday: React.FC<PropsTueday> = ({ propsTuesday }) => {
     const customStyles = {
         content: {
             top: '50%',
@@ -22,41 +21,83 @@ function Tuesday(props: { propsTuesday: string | number | boolean | React.ReactE
             transform: 'translate(-50%, -50%)',
         },
     };
+    const [modalIsOpen, setIsOpen] = useState(false);
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
+    const openModal = () => {
         setIsOpen(true);
-        console.log(props.propsTuesday)
-    }
+    };
 
-   
-
-    function closeModal() {
+    const closeModal = () => {
         setIsOpen(false);
-    }
+    };
+
+    const peito: Array<string | number | boolean> = [];
+    const triceps: Array<string | number | boolean> = [];
+    const perna: Array<string | number | boolean> = [];
+
+    propsTuesday.forEach((treino) => {
+        if (treino.Peito) {
+            peito.push(...treino.Peito);
+        } else if (treino.Triceps) {
+            triceps.push(...treino.Triceps);
+        } else if (treino.Perna) {
+            perna.push(...treino.Perna);
+        }
+    });
 
     return (
-
-
         <div className='divDays'>
-            <button onClick={openModal} className='btnDays'>Terça-Feira</button>
+            <button onClick={openModal} className='btnDays'>
+                Terça - Feira
+            </button>
+
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
                 ariaHideApp={false}
             >
-                <h2 >Biceps</h2>
+                <h2>Treino de Terça:</h2>
                 <button onClick={closeModal}>X</button>
-                <a>Rosca</a>
-                <a>Supino</a>
-                <a>Isso ai</a>
+
+                {peito.length > 0 && (
+                    <ul>
+                        Peito
+                        <ul>
+                            {peito.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {triceps.length > 0 && (
+                    <ul>
+                        Triceps
+                        <ul>
+                            {triceps.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {perna.length > 0 && (
+                    <ul>
+                        Perna
+                        <ul>
+                            {perna.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
 
             </Modal>
         </div>
 
     )
+
 }
 
 export default Tuesday
