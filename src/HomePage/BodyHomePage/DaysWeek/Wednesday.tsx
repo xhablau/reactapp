@@ -4,9 +4,15 @@ import '../DaysWeek/DaysWeek.css';
 
 interface PropsWednesday {
     propsWednesday: Array<{
+        Abdominal?: Array<string | number | boolean>;
         Peito?: Array<string | number | boolean>;
         Triceps?: Array<string | number | boolean>;
         Perna?: Array<string | number | boolean>;
+        Biceps?: Array<string | number | boolean>
+        Cardio?: Array<string | number | boolean>
+        Descanso?: Array<string | number | boolean>
+        Costas?: Array<string | number | boolean>
+        Ombro?: Array<string | number | boolean>
     }>;
 }
 
@@ -34,6 +40,12 @@ const Wednesday: React.FC<PropsWednesday> = ({ propsWednesday }) => {
     const peito: Array<string | number | boolean> = [];
     const triceps: Array<string | number | boolean> = [];
     const perna: Array<string | number | boolean> = [];
+    const biceps: Array<string | number | boolean> = [];
+    const abdominal: Array<string | number | boolean> = [];
+    const cardio: Array<string | number | boolean> = [];
+    const descanso: Array<string | number | boolean> = [];
+    const costas: Array<string | number | boolean> = [];
+    const ombro: Array<string | number | boolean> = [];
 
     propsWednesday.forEach((treino) => {
         if (treino.Peito) {
@@ -42,6 +54,20 @@ const Wednesday: React.FC<PropsWednesday> = ({ propsWednesday }) => {
             triceps.push(...treino.Triceps);
         } else if (treino.Perna) {
             perna.push(...treino.Perna);
+        } else if (treino.Biceps) {
+            biceps.push(...treino.Biceps);
+        } else if (treino.Abdominal) {
+            abdominal.push(...treino.Abdominal);
+        } else if (treino.Cardio) {
+            cardio.push(...treino.Cardio);
+        } else if (treino.Descanso) {
+            descanso.push(...treino.Descanso);
+        } else if (treino.Costas) {
+            costas.push(...treino.Costas);
+        } else if (treino.Ombro) {
+            ombro.push(...treino.Ombro);
+        } else {
+            console.log("Erro")
         }
     });
 
@@ -59,6 +85,7 @@ const Wednesday: React.FC<PropsWednesday> = ({ propsWednesday }) => {
             >
                 <h2>Treino de Quarta:</h2>
                 <button onClick={closeModal}>X</button>
+
 
                 {peito.length > 0 && (
                     <ul>
@@ -93,6 +120,67 @@ const Wednesday: React.FC<PropsWednesday> = ({ propsWednesday }) => {
                     </ul>
                 )}
 
+                {biceps.length > 0 && (
+                    <ul>
+                        Biceps
+                        <ul>
+                            {biceps.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {abdominal.length > 0 && (
+                    <ul>
+                        Abdominal
+                        <ul>
+                            {abdominal.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {cardio.length > 0 && (
+                    <ul>
+                        Cardio
+                        <ul>
+                            {cardio.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {descanso.length > 0 && (
+                    <ul>
+                        Descanso
+
+                    </ul>
+                )}
+
+                {costas.length > 0 && (
+                    <ul>
+                        Costas
+                        <ul>
+                            {costas.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
+
+                {ombro.length > 0 && (
+                    <ul>
+                        Ombro
+                        <ul>
+                            {ombro.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
             </Modal>
         </div>
 

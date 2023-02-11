@@ -8,6 +8,7 @@ import Tuesday from './DaysWeek/Tuesday';
 import Wednesday from './DaysWeek/Wednesday';
 import '../BodyHomePage/BodyHomePage.css';
 import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
+import Diet from './DaysWeek/Diet';
 
 function BodyHomePage() {
   const [monday, setMonday] = useState([]);
@@ -24,6 +25,7 @@ function BodyHomePage() {
         const response = await getDataFromFirestore();
         setMonday(response.monday);
         setTuesday(response.tuesday);
+       
         setWednesday(response.wednesday);
         setThursday(response.thursday);
         setFriday(response.friday);
@@ -37,7 +39,7 @@ function BodyHomePage() {
 
     getAllDays();
   }, []);
-
+console.log("dieta", diet)
   return (
     <div id="principalBodyHomePage">
       <Monday propsMonday={monday} />
@@ -47,6 +49,7 @@ function BodyHomePage() {
       <Friday propsFriday={friday} />
       <Saturday propsSaturday={saturday} />
       <Sunday propsSunday={sunday} />
+      <Diet propsDiet={diet}/>
     </div>
   );
 }
