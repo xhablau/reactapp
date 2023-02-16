@@ -54,7 +54,6 @@ function LoginUser() {
             sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
             sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
-
             
             window.location.href = '/HomePage'
 

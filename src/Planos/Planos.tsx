@@ -30,7 +30,7 @@ function Planos() {
           },
         ],
         mode: 'subscription',
-        success_url: `${YOUR_DOMAIN}/welcome`,
+        success_url: `${YOUR_DOMAIN}/welcomeMesal`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
       window.location.assign(session.url);
@@ -60,7 +60,7 @@ function Planos() {
           },
         ],
         mode: 'subscription',
-        success_url: `${YOUR_DOMAIN}/welcome`,
+        success_url: `${YOUR_DOMAIN}/welcomeTrimestral`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
       window.location.assign(session.url);
@@ -90,7 +90,7 @@ function Planos() {
           },
         ],
         mode: 'subscription',
-        success_url: `${YOUR_DOMAIN}/welcome`,
+        success_url: `${YOUR_DOMAIN}/welcomeSemestral`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
       window.location.assign(session.url);

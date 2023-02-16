@@ -12,7 +12,9 @@ import AuthRoute from './components/AuthRoute'
 import RegisterUser from './Home/Componentes Home/HeaderHome/RegisterUser'
 import HomePage from './HomePage/HomePage'
 import Planos from './Planos/Planos'
-import Thanks from './Planos/Thanks'
+import ThanksMensal from './Planos/ThanksMensal'
+import ThanksTrimestral from './Planos/ThanksTrimestral'
+import ThanksSemestral from './Planos/ThanksSemestral'
 // import Planos from '../src/Planos/Planos'
 
 
@@ -40,7 +42,9 @@ function Rotas() {
         <Route path='/HomePage' element={<HomePage />} />
         <Route path='/planos' element={<Planos />} />
         <Route path='/' element={<Home />} />
-        <Route path='/welcome' element={<Thanks/>} />
+        <Route path='/welcomeMensal' element={<ThanksMensal/>} />
+        <Route path='/welcomeTrimestral' element={<ThanksTrimestral/>} />
+        <Route path='/welcomeSemestral' element={<ThanksSemestral/>} />
 
       </Routes>
     </BrowserRouter>
