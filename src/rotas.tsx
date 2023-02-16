@@ -11,6 +11,9 @@ import { config } from './config/config';
 import AuthRoute from './components/AuthRoute'
 import RegisterUser from './Home/Componentes Home/HeaderHome/RegisterUser'
 import HomePage from './HomePage/HomePage'
+import Planos from './Planos/Planos'
+import Thanks from './Planos/Thanks'
+// import Planos from '../src/Planos/Planos'
 
 
 initializeApp(config.firebaseConfig)
@@ -35,7 +38,9 @@ function Rotas() {
         <Route path='/AboutUs' element={<AboutUs />} />
         <Route path='/ContactUs' element={<ContactUs />} />
         <Route path='/HomePage' element={<HomePage />} />
+        <Route path='/planos' element={<Planos />} />
         <Route path='/' element={<Home />} />
+        <Route path='/welcome' element={<Thanks/>} />
 
       </Routes>
     </BrowserRouter>

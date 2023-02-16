@@ -1,4 +1,4 @@
-import { PricingCard } from 'react-native-elements';
+// import { PricingCard } from 'react-native-elements';
 
 
 
@@ -6,9 +6,9 @@ import { PricingCard } from 'react-native-elements';
 function PricingTableBodyHome() {
 
 
-    return (
-        <div id='testea'>
-            <div className="card-deck mb-3 text-center">
+  return (
+    <div id='testea'>
+      <div className="card-deck mb-3 text-center">
         <div className="card mb-4 shadow-sm">
           <div className="card-header">
             <h4 className="my-0 font-weight-normal">Grátis</h4>
@@ -56,8 +56,8 @@ function PricingTableBodyHome() {
         </div>
       </div>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default PricingTableBodyHome
