@@ -1,8 +1,31 @@
-#PrincipalContactUs{
+#PrincipalContactUs {
     width: 25%;
     display: flex;
     flex-direction: column;
     margin-left: 39%;
-    margin-top: 6%;
+    margin-top: 14%;
     margin-bottom: 6%;
+}
+
+@media (max-width: 1050px) {
+    #PrincipalContactUs {
+        margin-top: 19%;
+    }
+}
+
+@media (max-width: 800px) {
+    #PrincipalContactUs {
+        margin-top: 29%;
+    }
+}
+
+@media (max-width: 470px) {
+    #PrincipalContactUs {
+        width: 50% !important;
+        
+        margin-left: 26% !important;
+        margin-top: 41% !important;
+        margin-bottom: 19% !important;
+    
+    }
 }
