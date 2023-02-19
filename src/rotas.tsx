@@ -15,6 +15,7 @@ import Planos from './Planos/Planos'
 import ThanksMensal from './Planos/ThanksMensal'
 import ThanksTrimestral from './Planos/ThanksTrimestral'
 import ThanksSemestral from './Planos/ThanksSemestral'
+import PlanosHome from './Home/Planos/PlanosHome'
 // import Planos from '../src/Planos/Planos'
 
 
@@ -45,6 +46,8 @@ function Rotas() {
         <Route path='/welcomeMensal' element={<ThanksMensal/>} />
         <Route path='/welcomeTrimestral' element={<ThanksTrimestral/>} />
         <Route path='/welcomeSemestral' element={<ThanksSemestral/>} />
+        <Route path='/planosHome' element={<PlanosHome/>} />
+
 
       </Routes>
     </BrowserRouter>
