@@ -24,7 +24,7 @@ initializeApp(config.firebaseConfig)
 
 
 function Rotas() {
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -36,17 +36,17 @@ function Rotas() {
             </AuthRoute>
           }
         />
+        <Route path='/' element={<Home />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path='/AboutUs' element={<AboutUs />} />
         <Route path='/ContactUs' element={<ContactUs />} />
         <Route path='/HomePage' element={<HomePage />} />
         <Route path='/planos' element={<Planos />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/welcomeMensal' element={<ThanksMensal/>} />
-        <Route path='/welcomeTrimestral' element={<ThanksTrimestral/>} />
-        <Route path='/welcomeSemestral' element={<ThanksSemestral/>} />
-        <Route path='/planosHome' element={<PlanosHome/>} />
+        <Route path='/welcomeMensal' element={<ThanksMensal />} />
+        <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
+        <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
+        <Route path='/planosHome' element={<PlanosHome />} />
 
 
       </Routes>
