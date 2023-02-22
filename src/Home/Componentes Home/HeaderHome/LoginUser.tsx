@@ -84,26 +84,21 @@ function LoginUser() {
     };
 
     const singInWhitGoogle = async () => {
-        setAuthing(true);
+        let history = useNavigate();
 
-        signInWithPopup(auth, new GoogleAuthProvider())
-            .then(response => {
+        try {
+            const response = await signInWithPopup(auth, new GoogleAuthProvider());
 
+            sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
+            sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
+            sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
+            sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
-                sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
-                sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
-                sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
-                sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
-
-                // window.location.href = '/HomePage';
-                redirect('/homepage')
-                
-                redirect("/homepage")
-            })
-            .catch(error => {
-                console.log(error)
-                setAuthing(false)
-            })
+            // history.push('/HomePage');
+            navigate("//homepage");
+        } catch (error) {
+            console.log(error);
+        }
     }
     const singInWhitFacebook = async () => {
         setAuthing(true);
