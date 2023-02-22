@@ -23,13 +23,12 @@ function ThanksSemestral() {
                 const finalDate = Timestamp.fromDate(date);
 
                 await setDoc(doc(citiesRef, uidUser), {
-                    diet: [{
-                        Breakfast: [],
-                        Lunch: [],
-                        AfternoonSnack: [],
-                        Dinner: [],
-                        Supper: []
-                    }],
+                    diet: [{ Breakfast: [] },
+                    { Lunch: [] },
+                    { AfternoonSnack: [] },
+                    { Dinner: [] },
+                    { Supper: [] }
+                    ],
                     friday: [],
                     monday: [],
                     saturday: [],
