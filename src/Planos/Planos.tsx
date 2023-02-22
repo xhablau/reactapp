@@ -15,28 +15,25 @@ function Planos() {
     });
 
     const YOUR_DOMAIN = 'http://localhost:5173';
-
-
     try {
       const session = await stripe.checkout.sessions.create({
-
         billing_address_collection: 'auto',
         line_items: [
           {
             price: "price_1Mc6V0GQkyUss98h26MeKxfP",
             // For metered billing, do not pass quantity
             quantity: 1,
-
           },
         ],
         mode: 'subscription',
         success_url: `${YOUR_DOMAIN}/welcomeMesal`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
-      window.location.assign(session.url);
+      window.location.assign(session?.url || '');
     } catch (error) {
       console.error(error);
     }
+
   }
 
   async function trimestral() {
@@ -63,7 +60,7 @@ function Planos() {
         success_url: `${YOUR_DOMAIN}/welcomeTrimestral`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
-      window.location.assign(session.url);
+      window.location.assign(session?.url || '');
     } catch (error) {
       console.error(error);
     }
@@ -93,7 +90,7 @@ function Planos() {
         success_url: `${YOUR_DOMAIN}/welcomeSemestral`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
-      window.location.assign(session.url);
+      window.location.assign(session?.url || '');
     } catch (error) {
       console.error(error);
     }
