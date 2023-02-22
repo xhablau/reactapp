@@ -16,7 +16,6 @@ import ThanksMensal from './Planos/ThanksMensal'
 import ThanksTrimestral from './Planos/ThanksTrimestral'
 import ThanksSemestral from './Planos/ThanksSemestral'
 import PlanosHome from './Home/Planos/PlanosHome'
-// import Planos from '../src/Planos/Planos'
 
 
 initializeApp(config.firebaseConfig)
@@ -24,7 +23,6 @@ initializeApp(config.firebaseConfig)
 
 
 function Rotas() {
-
   return (
     <BrowserRouter>
       <Routes>
@@ -36,23 +34,20 @@ function Rotas() {
             </AuthRoute>
           }
         />
-        <Route path='/' element={<Home />} />
-        <Route path="https://mypersonal-40ff3.web.app/login" element={<LoginUser />} />
+        <Route path="login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
-        <Route path='/AboutUs' element={<AboutUs />} />
-        <Route path='/ContactUs' element={<ContactUs />} />
-        <Route path='/HomePage' element={<HomePage />} />
-        <Route path='/planos' element={<Planos />} />
-        <Route path='/welcomeMensal' element={<ThanksMensal />} />
-        <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
-        <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
-        <Route path='/planosHome' element={<PlanosHome />} />
-
-
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/planos" element={<Planos />} />
+        <Route path="/welcomemensal" element={<ThanksMensal />} />
+        <Route path="/welcometrimestral" element={<ThanksTrimestral />} />
+        <Route path="/welcomesemestral" element={<ThanksSemestral />} />
+        <Route path="/planoshome" element={<PlanosHome />} />
+        
       </Routes>
     </BrowserRouter>
-
-  )
-
+  );
 }
+
 export default Rotas
