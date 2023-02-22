@@ -95,7 +95,7 @@ function LoginUser() {
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
             // history.push('/HomePage');
-            navigate("//homepage");
+            navigate("/homepage");
         } catch (error) {
             console.log(error);
         }
