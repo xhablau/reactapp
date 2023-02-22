@@ -99,7 +99,6 @@ function LoginUser() {
 
                 
                 navigate("/homepage");
-                console.log("bateu")
             })
             .catch(error => {
                 console.log("error",error)
