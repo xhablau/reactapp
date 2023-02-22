@@ -14,7 +14,8 @@ function Planos() {
       apiVersion: '2022-11-15',
     });
 
-    const YOUR_DOMAIN = 'http://localhost:5173';
+    const YOUR_DOMAIN = 'https://mypersonal-40ff3.web.app/';
+
     try {
       const session = await stripe.checkout.sessions.create({
         billing_address_collection: 'auto',
@@ -41,7 +42,7 @@ function Planos() {
       apiVersion: '2022-11-15',
     });
 
-    const YOUR_DOMAIN = 'http://localhost:5173';
+    const YOUR_DOMAIN = 'https://mypersonal-40ff3.web.app/';
 
 
     try {
