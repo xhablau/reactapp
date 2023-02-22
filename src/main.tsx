@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Rotas from './rotas'
 import { initializeApp } from "firebase/app";
 import { config } from './config/config';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -19,31 +18,36 @@ import PlanosHome from './Home/Planos/PlanosHome';
 
 initializeApp(config.firebaseConfig)
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+function Main() {
 
-  <BrowserRouter>
-  <Routes>
-    <Route
-      path="/"
-      element={
-        <AuthRoute>
-          <Home />
-        </AuthRoute>
-      }
-    />
-    <Route path='/' element={<Home />} />
-    <Route path="https://mypersonal-40ff3.web.app/login" element={<LoginUser />} />
-    <Route path="/register" element={<RegisterUser />} />
-    <Route path='/AboutUs' element={<AboutUs />} />
-    <Route path='/ContactUs' element={<ContactUs />} />
-    <Route path='/HomePage' element={<HomePage />} />
-    <Route path='/planos' element={<Planos />} />
-    <Route path='/welcomeMensal' element={<ThanksMensal />} />
-    <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
-    <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
-    <Route path='/planosHome' element={<PlanosHome />} />
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <AuthRoute>
+              <Home />
+            </AuthRoute>
+          }
+        />
+        <Route path='/' element={<Home />} />
+        <Route path="https://mypersonal-40ff3.web.app/login" element={<LoginUser />} />
+        <Route path="/register" element={<RegisterUser />} />
+        <Route path='/AboutUs' element={<AboutUs />} />
+        <Route path='/ContactUs' element={<ContactUs />} />
+        <Route path='/HomePage' element={<HomePage />} />
+        <Route path='/planos' element={<Planos />} />
+        <Route path='/welcomeMensal' element={<ThanksMensal />} />
+        <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
+        <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
+        <Route path='/planosHome' element={<PlanosHome />} />
 
 
-  </Routes>
-</BrowserRouter>
-)
+      </Routes>
+    </BrowserRouter>
+
+  )
+
+}
+export default Main
