@@ -20,8 +20,6 @@ import PlanosHome from './Home/Planos/PlanosHome'
 
 initializeApp(config.firebaseConfig)
 
-
-
 function App() {
     return (
         <BrowserRouter>

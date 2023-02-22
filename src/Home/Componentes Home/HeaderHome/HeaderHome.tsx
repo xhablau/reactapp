@@ -15,8 +15,8 @@ function HeaderHome() {
 
         <nav className="navbar navbar-expand-lg navbar-red bg-red fixed-top" style={{ paddingTop: '0' }}>
             <div id="headerPrincipal">
-                <Link to="/login"> <button id='buttonHeaderLogin' >   <a id='btnLoginAluno'>Área do Aluno</a> </button> </Link>
 
+                <button id='buttonHeaderLogin' >   <a href="https://mypersonal-40ff3.web.app/login" id='btnLoginAluno'>Área do Aluno</a> </button>
 
                 <div className="container">
                     <div style={{width:'58%'}}>
@@ -32,9 +32,8 @@ function HeaderHome() {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
 
                         <ul className="navbar-nav ">
-                            <li className="nav-item ">
-                                <Link to="/login"> Inicio </Link>
-                               
+                            <li className="nav-item ">                                
+                                <a className='tableHCQP' href="/">Contato</a>
                             </li>
                             <li className="nav-item">
                                 <a className='tableHCQP' href="/ContactUs">Contato</a>
