@@ -6,6 +6,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPasswor
 import { useNavigate } from 'react-router'
 import React, { createContext, useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
+import { redirect } from "react-router-dom";
 
 
 
@@ -57,8 +58,7 @@ function LoginUser() {
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
             // window.location.href = '/HomePage';
-            <Link to="/HomePage"></Link>
-
+            redirect("/HomePage")
 
 
         })
@@ -96,7 +96,7 @@ function LoginUser() {
                 sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
                 // window.location.href = '/HomePage';
-                <Link to="/HomePage"> </Link>
+                redirect("/HomePage")
             })
             .catch(error => {
                 console.log(error)
