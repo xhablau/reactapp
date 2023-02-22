@@ -4,10 +4,8 @@ import Rotas from './rotas'
 import axios from 'axios';
 
 
-axios.get('/api/data', {
-  headers: {
-    'Cache-Control': 'no-cache',
-  },
+window.addEventListener('unload', () => {
+  localStorage.clear();
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
