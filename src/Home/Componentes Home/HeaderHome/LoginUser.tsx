@@ -96,7 +96,7 @@ function LoginUser() {
                 sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
                 // window.location.href = '/HomePage';
-                <Link to="/HomePage"> {window.location.href = '/HomePage'}</Link>
+                <Link to="/HomePage"> </Link>
             })
             .catch(error => {
                 console.log(error)
