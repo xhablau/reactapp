@@ -1,13 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import Rotas from './rotas'
 
 
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-
+ReactDOM.render(
   <React.StrictMode>
-        
     <Rotas />
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);
