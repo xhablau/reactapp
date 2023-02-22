@@ -28,6 +28,7 @@ function Rotas() {
       <Routes>
         <Route
           path="/"
+          
           element={
             <AuthRoute>
               <Home />
