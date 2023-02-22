@@ -82,11 +82,10 @@ function LoginUser() {
 
 
     };
-
     const singInWhitGoogle = async () => {
 
         setAuthing(true);
-
+        let navigate = useNavigate()
         signInWithPopup(auth, new GoogleAuthProvider())
             .then(response => {
 
@@ -95,11 +94,12 @@ function LoginUser() {
                 sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
                 sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
-                let navigate = useNavigate()
+                
                 navigate("/homepage");
+                console.log("bateu")
             })
             .catch(error => {
-                console.log(error)
+                console.log("error",error)
                 setAuthing(false)
             })
     }
