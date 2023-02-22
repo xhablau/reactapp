@@ -5,6 +5,7 @@ import LogoPreta from '../../../img/logoPreta.jpeg'
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import React, { createContext, useContext, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 
 
@@ -55,7 +56,8 @@ function LoginUser() {
             sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
             
-            window.location.href = '/HomePage'
+            // window.location.href = '/HomePage';
+            <Link to="/HomePage"></Link>
 
 
 
