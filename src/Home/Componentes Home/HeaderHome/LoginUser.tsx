@@ -50,12 +50,12 @@ function LoginUser() {
         signInWithEmailAndPassword(auth, email, password).then(response => {
 
 
-           
+
             sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
             sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
             sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
-            
+
             // window.location.href = '/HomePage';
             <Link to="/HomePage"></Link>
 
@@ -89,13 +89,14 @@ function LoginUser() {
         signInWithPopup(auth, new GoogleAuthProvider())
             .then(response => {
 
-                
+
                 sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
                 sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
                 sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
                 sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
-                window.location.href = '/HomePage'
+                // window.location.href = '/HomePage';
+                <Link to="/HomePage"> {window.location.href = '/HomePage'}</Link>
             })
             .catch(error => {
                 console.log(error)
@@ -107,7 +108,7 @@ function LoginUser() {
 
         signInWithPopup(auth, new FacebookAuthProvider())
             .then(response => {
-                
+
                 sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
                 sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
                 sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
@@ -125,7 +126,7 @@ function LoginUser() {
 
         signInWithPopup(auth, new TwitterAuthProvider())
             .then(response => {
-                
+
                 sessionStorage.setItem('photoUser', JSON.stringify(response.user.photoURL));
                 sessionStorage.setItem('emailUser', JSON.stringify(response.user.email));
                 sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
