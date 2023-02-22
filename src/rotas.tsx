@@ -37,7 +37,7 @@ function Rotas() {
           }
         />
         <Route path='/' element={<Home />} />
-        <Route path="/login" element={<LoginUser />} />
+        <Route path="https://mypersonal-40ff3.web.app/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path='/AboutUs' element={<AboutUs />} />
         <Route path='/ContactUs' element={<ContactUs />} />
