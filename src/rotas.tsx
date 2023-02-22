@@ -24,11 +24,10 @@ initializeApp(config.firebaseConfig)
 
 function Rotas() {
   return (
-    
+    <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          
           element={
             <AuthRoute>
               <Home />
@@ -47,7 +46,7 @@ function Rotas() {
         <Route path="/planoshome" element={<PlanosHome />} />
         
       </Routes>
-    
+    </BrowserRouter>
   );
 }
 
