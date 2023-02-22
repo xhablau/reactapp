@@ -3,6 +3,7 @@ import LogoVermelha from '../../../img/logoVermelha.png'
 import LogoBranca from '../../../img/logoBranca.png'
 import LogoPreta from '../../../img/logoPreta.jpeg'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,6 +15,7 @@ function HeaderHome() {
 
         <nav className="navbar navbar-expand-lg navbar-red bg-red fixed-top" style={{ paddingTop: '0' }}>
             <div id="headerPrincipal">
+                <Link to="/login"></Link>
 
                 <button id='buttonHeaderLogin' >   <a href="https://mypersonal-40ff3.web.app/login" id='btnLoginAluno'>Área do Aluno</a> </button>
 
@@ -32,7 +34,8 @@ function HeaderHome() {
 
                         <ul className="navbar-nav ">
                             <li className="nav-item ">
-                                <a className='tableHCQP' href="/">Inicio</a>
+                                <Link to="/login"></Link>
+                                Inicio
                             </li>
                             <li className="nav-item">
                                 <a className='tableHCQP' href="/ContactUs">Contato</a>
