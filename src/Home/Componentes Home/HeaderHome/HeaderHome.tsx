@@ -33,7 +33,7 @@ function HeaderHome() {
 
                         <ul className="navbar-nav ">
                             <li className="nav-item ">                                
-                                <a className='tableHCQP' href="/">Contato</a>
+                                <a className='tableHCQP' href="/">Inicio</a>
                             </li>
                             <li className="nav-item">
                                 <a className='tableHCQP' href="/ContactUs">Contato</a>
