@@ -84,7 +84,7 @@ function LoginUser() {
     };
 
     const singInWhitGoogle = async () => {
-        let history = useNavigate();
+        let navigate = useNavigate()
 
         try {
             const response = await signInWithPopup(auth, new GoogleAuthProvider());
