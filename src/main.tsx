@@ -9,6 +9,7 @@ initializeApp(config.firebaseConfig)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 
   <React.StrictMode>
+    
     <Rotas />
   </React.StrictMode>,
 )
