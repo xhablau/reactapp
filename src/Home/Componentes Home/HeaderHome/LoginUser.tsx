@@ -18,7 +18,10 @@ import { redirect } from "react-router-dom";
 function LoginUser() {
 
 
-
+    window.onbeforeunload = function() {
+        navigate("/login");
+    }
+    
 
     const auth = getAuth()
     const navigate = useNavigate()
