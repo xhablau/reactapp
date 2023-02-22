@@ -97,6 +97,7 @@ function LoginUser() {
 
                 // window.location.href = '/HomePage';
                 redirect('/homepage')
+                
                 redirect("/homepage")
             })
             .catch(error => {
