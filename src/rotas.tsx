@@ -34,7 +34,7 @@ function Rotas() {
             </AuthRoute>
           }
         />
-        <Route path="login" element={<LoginUser />} />
+        <Route path="alogin" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />

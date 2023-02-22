@@ -15,7 +15,7 @@ function HeaderHome() {
         <nav className="navbar navbar-expand-lg navbar-red bg-red fixed-top" style={{ paddingTop: '0' }}>
             <div id="headerPrincipal">
 
-                <button id='buttonHeaderLogin' >   <a href="/login" id='btnLoginAluno'>Área do Aluno</a> </button>
+                <button id='buttonHeaderLogin' >   <a href="/alogin" id='btnLoginAluno'>Área do Aluno</a> </button>
 
                 <div className="container">
                     <div style={{width:'58%'}}>
