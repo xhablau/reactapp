@@ -1,0 +1,18 @@
+#planoMensal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-deck {
+    margin-top: 16% ;
+}
+
+
+@media (max-width: 995px) {
+    .card-deck {
+        margin-top: 34% !important;
+    }
+}

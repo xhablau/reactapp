@@ -33,7 +33,7 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
             </div>
 
             {isOpen && (
-                <aside >
+                <aside style={{backgroundColor:'rgb(34, 33, 33)'}}>
                     <h2>Menu Lateral</h2>
                     <div>
                         <img src={photoUser} id="photoUser" />

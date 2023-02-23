@@ -1,6 +1,7 @@
 
 import HeaderHome from '../Componentes Home/HeaderHome/HeaderHome'
 import FooterHome from '../Componentes Home/FooterHome/FooterHome'
+import '../Planos/PlanosHome.css'
 
 
 
@@ -18,19 +19,19 @@ function PlanosHome() {
         <div>
 
             <HeaderHome />
-            <div className="card-deck mb-3 text-center">
+            <div className="card-deck mb-3 text-center" >
                 <div className="card mb-4 shadow-sm">
                     <div className="card-header">
                         <h4 className="my-0 font-weight-normal">Mensal</h4>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body" id='planoMensal'>
                         <h1 className="card-title pricing-card-title">R$21,90 <small className="text-muted">/ mês</small></h1>
                         <ul className="list-unstyled mt-3 mb-4">
                             <li>Treino exclusivo</li>
                             <li>Dieta exclusivo</li>
                             <li>Suporte por Whatsapp</li>
                         </ul>
-                        <button type="button" className="btn btn-lg btn-block btn-outline-primary" onClick={goLogin}>Cadastre-se gratuitamente</button>
+                        <button type="button" className="btn btn-lg btn-block btn-outline-primary"  onClick={goLogin}>Cadastre-se gratuitamente</button>
                     </div>
                 </div>
                 <div className="card mb-4 shadow-sm">
@@ -67,6 +68,7 @@ function PlanosHome() {
                     </div>
                 </div>
             </div>
+            <div style={{marginBottom:'7% '}}></div>
             <FooterHome />
         </div>
 

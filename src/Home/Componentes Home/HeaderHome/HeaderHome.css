@@ -17,10 +17,13 @@
 }
 
 .tableHCQP {
-    color: white;
+    color: white !important;
     padding: 10px;
     font-size: 30px;
-    text-decoration: none;
+    text-decoration: none !important;
+}
+.tableHCQP:hover {
+    text-shadow: 0.1em 0.1em #333
 }
 
 #btnLoginAluno {
