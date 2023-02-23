@@ -12,7 +12,9 @@ import Diet from './DaysWeek/Diet';
 
 
 
-export const isPremium: any[] = [];
+export const isMensal: any[] = [];
+export const isTrimestral: any[] = [];
+export const isSemestral: any[] = [];
 
 function BodyHomePage() {
   const [monday, setMonday] = useState([]);
@@ -39,7 +41,10 @@ function BodyHomePage() {
         setSaturday(response.saturday);
         setSunday(response.sunday);
         setDiet(response.diet);
-        isPremium.push(response.isPremium)
+        isMensal.push(response.isMensal)
+        isTrimestral.push(response.isTrimestral)
+        isSemestral.push(response.isSemestral)
+
       } catch (error) {
         console.error(error);
       }

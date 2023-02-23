@@ -2,3 +2,13 @@
     background-image: linear-gradient( to right, red 20%,#ff0059, #ff7575 );
     background-color: black;
 }
+
+#newAccount{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+#newAccount:hover{
+    text-decoration: none !important;
+    color: white !important;
+}

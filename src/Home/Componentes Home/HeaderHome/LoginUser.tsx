@@ -2,6 +2,10 @@ import '../HeaderHome/LoginUser.css'
 import LogoVermelha from '../../../img/logoVermelha.png'
 import LogoBranca from '../../../img/logoBranca.png'
 import LogoPreta from '../../../img/logoPreta.jpeg'
+import facebookimg from '../../../img/facebook.png'
+import twitterimg from '../../../img/twitter.png'
+import googleimg from '../../../img/gmail.png'
+
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider, TwitterAuthProvider, sendPasswordResetEmail } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import React, { createContext, useContext, useState } from 'react';
@@ -15,13 +19,14 @@ import { redirect } from "react-router-dom";
 
 
 
+
 function LoginUser() {
 
 
-    window.onbeforeunload = function() {
+    window.onbeforeunload = function () {
         navigate("/login");
     }
-    
+
 
     const auth = getAuth()
     const navigate = useNavigate()
@@ -97,11 +102,11 @@ function LoginUser() {
                 sessionStorage.setItem('uidUser', JSON.stringify(response.user.uid));
                 sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
-                
+
                 navigate("/homepage");
             })
             .catch(error => {
-                console.log("error",error)
+                console.log("error", error)
                 setAuthing(false)
             })
     }
@@ -168,19 +173,22 @@ function LoginUser() {
 
                                             <div className="text-center mb-3">
                                                 <p>Entre com:</p>
-                                                <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitFacebook()} disabled={authing}>
-                                                    <i className="fab fa-facebook-f"> facebook </i>
-                                                </button>
+                                                <div style={{ display: 'flex' }}>
+                                                    <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitFacebook()} disabled={authing}>
+                                                        {/* <i className="fab fa-facebook-f" src={}> facebook </i> */}
+                                                        <img src={facebookimg} style={{ width: '60%' }}></img>
+                                                    </button>
 
-                                                <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitGoogle()} disabled={authing}>
-                                                    <i className="fab fa-google"> google </i>
-                                                </button>
+                                                    <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitGoogle()} disabled={authing}>
+                                                        {/* <i className="fab fa-google"> google </i> */}
+                                                        <img src={googleimg} style={{ width: '60%' }}></img>
+                                                    </button>
 
-                                                <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitTwitter()} disabled={authing}>
-                                                    <i className="fab fa-twitter">twitter</i>
-                                                </button>
-
-
+                                                    <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitTwitter()} disabled={authing}>
+                                                        {/* <i className="fab fa-twitter">twitter</i> */}
+                                                        <img src={twitterimg} style={{ width: '60%' }}></img>
+                                                    </button>
+                                                </div>
                                             </div>
 
                                             <p className="text-center">ou:</p>
@@ -200,13 +208,13 @@ function LoginUser() {
 
                                             <div className="text-center pt-1 mb-5 pb-1">
                                                 <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
-
+                                                <button className="btn btn-red " onClick={handlePasswordReset}>Esqueceu a senha?</button>
 
                                             </div>
-                                            <button className="text-muted" onClick={handlePasswordReset}>Esqueceu a senha?</button>
+                                            
                                             <div className="d-flex align-items-center justify-content-center pb-4">
                                                 <p className="mb-0 me-2">Não tem uma conta?</p>
-                                                <button type="button" className="btn btn-outline-danger" ><a href="/register">Criar nova conta</a></button>
+                                                <button type="button" className="btn btn-outline-danger" ><a href="/register" id='newAccount'>Criar nova conta</a></button>
                                             </div>
 
                                         </form>

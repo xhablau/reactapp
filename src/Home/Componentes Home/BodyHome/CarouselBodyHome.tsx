@@ -12,7 +12,7 @@ function CarouselBodyHome() {
 
     return (
         <div>
-            <Carousel>
+            <Carousel style={{marginTop:'6.91%'}}>
                 <Carousel.Item>
                     <img src={LogoBranca} id="img" className="teste" ></img>
                 </Carousel.Item>
