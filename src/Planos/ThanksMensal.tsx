@@ -24,6 +24,7 @@ function ThanksMensal() {
 
         await setDoc(doc(citiesRef, uidUser), {
           diet: [{ Breakfast: [] },
+          { BreakLunch: [] },
           { Lunch: [] },
           { AfternoonSnack: [] },
           { Dinner: [] },
@@ -55,12 +56,18 @@ function ThanksMensal() {
 
 
   return (
-    <div>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
       <h1>Agradecimento</h1>
       <p>Obrigado, {displayName}, pelo seu pagamento mensal! </p>
-      <p>Seu pedido será processado e enviado em breve.</p>
+      <p>Pedimos que peencha esse esse formulario, para nós te conhecermos melhor e entregar um treino com dieta mais especifico ao seu dia a dia  </p>
+      <p>Seu treino e dieta estará disponivel em até 3 dias uteis</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScUFkCD8-wbScZL8-OXhL9XCIXz8gKYZjuiIp9d8daM-vemdA/viewform?embedded=true" width="500" height="2401"   >Carregando…</iframe>
+      <p>ou pelo link</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScUFkCD8-wbScZL8-OXhL9XCIXz8gKYZjuiIp9d8daM-vemdA/viewform?usp=sf_link" target="_blank">https://docs.google.com/forms/d/e/1FAIpQLScUFkCD8-wbScZL8-OXhL9XCIXz8gKYZjuiIp9d8daM-vemdA/viewform?usp=sf_link</a>
+      <a href='/HomePage' style={{paddingTop:'10%', paddingBottom:'2%'}}>Clique aqui para volta a tela inicial</a>
     </div>
 
+    
 
   );
 }

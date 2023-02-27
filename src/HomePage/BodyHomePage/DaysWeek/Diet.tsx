@@ -8,10 +8,12 @@ interface PropsDiet {
     propsDiet: Array<{
 
         Breakfast?: Array<string | number | boolean>;
+        BreakLunch?: Array<string | number | boolean>;
         Lunch?: Array<string | number | boolean>;
         AfternoonSnack?: Array<string | number | boolean>;
         Dinner?: Array<string | number | boolean>;
-        Supper?: Array<string | number | boolean>
+        Supper?: Array<string | number | boolean>;
+
 
     }>;
 }
@@ -39,6 +41,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
     };
 
     const breakfast: Array<string | number | boolean> = [];
+    const breaklunch: Array<string | number | boolean> = [];
     const lunch: Array<string | number | boolean> = [];
     const afternoonSnack: Array<string | number | boolean> = [];
     const dinner: Array<string | number | boolean> = [];
@@ -50,6 +53,8 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
             breakfast.push(...dieta.Breakfast);
         } else if (dieta.Lunch) {
             lunch.push(...dieta.Lunch);
+        } else if (dieta.BreakLunch) {
+            breaklunch.push(...dieta.BreakLunch);
         } else if (dieta.AfternoonSnack) {
             afternoonSnack.push(...dieta.AfternoonSnack);
         } else if (dieta.Dinner) {
@@ -74,7 +79,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                
+
                 <div id='divTreinoBtn'>
                     <h2>Dieta:</h2>
                     <button onClick={closeModal} className='btn btn-secondary btn-sm'>X</button>
@@ -92,7 +97,16 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
                     </ul>
                 )}
 
-
+                {breaklunch.length > 0 && (
+                    <ul>
+                        Lanche da Manhã
+                        <ul>
+                            {breaklunch.map((teste, key) => (
+                                <li key={key}>{teste}</li>
+                            ))}
+                        </ul>
+                    </ul>
+                )}
 
                 {lunch.length > 0 && (
                     <ul>
