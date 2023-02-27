@@ -66,12 +66,12 @@ function LoginUser() {
             sessionStorage.setItem('displayName', JSON.stringify(response.user.displayName));
 
             // window.location.href = '/HomePage';
-            redirect('/homepage')
-            redirect("/homepage")
+            redirect('/HomePage')
+            redirect("/HomePage")
 
         })
             .catch((error) => {
-                if (error.code === "auth/invalid-email") {
+                if (error.code === "auth/user-not-found") {
                     emailInput.style.border = "1px solid red";
                     emailTxt.innerText = "E-mail inválido";
                     emailTxt.style.color = " red"
@@ -207,7 +207,7 @@ function LoginUser() {
                                             </div>
 
                                             <div className="text-center pt-1 mb-5 pb-1">
-                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
+                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onClick={handleSignIn}>Log in</button>
                                                 <button className="btn btn-red " onClick={handlePasswordReset}>Esqueceu a senha?</button>
 
                                             </div>

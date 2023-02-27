@@ -26,14 +26,7 @@ function Rotas() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <AuthRoute>
-              <Home />
-            </AuthRoute>
-          }
-        />
+        <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path='/AboutUs' element={<AboutUs />} />

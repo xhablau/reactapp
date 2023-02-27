@@ -52,7 +52,7 @@ nav a:hover {
   padding: 10px;
   text-decoration: none;
   color: white;
-  text-shadow: 0.1em 0.1em blue
+  text-shadow: 0.1em 0.1em black
 }
 
 #navbarHeader:hover{
@@ -62,15 +62,11 @@ nav a:hover {
 @media (max-width: 1300px) {
   #photoUser {
     margin-bottom: 2%;
-  
   }
-
 }
 
 @media (max-width: 875px) {
   #photoUser {
     margin-bottom: 4%;
-  
   }
-
 }
