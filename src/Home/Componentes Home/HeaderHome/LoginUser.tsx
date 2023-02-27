@@ -53,7 +53,8 @@ function LoginUser() {
             });
     };
 
-    const handleSignIn = () => {
+    const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password).then(response => {
 
@@ -207,7 +208,7 @@ function LoginUser() {
                                             </div>
 
                                             <div className="text-center pt-1 mb-5 pb-1">
-                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onClick={() => handleSignIn()}>Log in</button>
+                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" >Log in</button>
                                                 <button className="btn btn-red " onClick={handlePasswordReset}>Esqueceu a senha?</button>
 
                                             </div>
