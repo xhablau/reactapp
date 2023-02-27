@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import '../DaysWeek/DaysWeek.css';
+import iconeAcademia from '../../../img/iconeAcademia.png'
 
 interface PropsFriday {
     propsFriday: Array<{
@@ -25,6 +26,7 @@ const Friday: React.FC<PropsFriday> = ({ propsFriday }) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            borderRadius: '10px',
         },
     };
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -48,7 +50,7 @@ const Friday: React.FC<PropsFriday> = ({ propsFriday }) => {
     const ombro: Array<string | number | boolean> = [];
 
     propsFriday.forEach((treino) => {
-        
+
         if (treino.Peito) {
             peito.push(...treino.Peito);
         } else if (treino.Triceps) {
@@ -75,7 +77,8 @@ const Friday: React.FC<PropsFriday> = ({ propsFriday }) => {
     return (
         <div className='divDays'>
             <button onClick={openModal} className='btnDays'>
-                Sexta-Feira
+                <img src={iconeAcademia} style={{ width: '55%' }}></img>
+                SEXTA-FEIRA
             </button>
 
             <Modal
@@ -84,8 +87,10 @@ const Friday: React.FC<PropsFriday> = ({ propsFriday }) => {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                <h2>Treino de Sexta:</h2>
-                <button onClick={closeModal}>X</button>
+                 <div id='divTreinoBtn'>
+                    <h2>Treino de Sexta-Feira:</h2>
+                    <button onClick={closeModal} className='btn btn-secondary btn-sm'>X</button>
+                </div>
 
 
                 {peito.length > 0 && (

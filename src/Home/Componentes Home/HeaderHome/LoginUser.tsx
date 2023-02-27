@@ -166,7 +166,7 @@ function LoginUser() {
                                                 style={{ width: `185px`, }}
                                             >
                                             </img>
-                                            <h4 className="mt-1 mb-5 pb-1">Nos somos BlaBlaBla</h4>
+                                            <h4 className="mt-1 mb-5 pb-1">Nos somos o MeuPersonal</h4>
                                         </div>
 
                                         <form onSubmit={handleSignIn}>
@@ -211,7 +211,7 @@ function LoginUser() {
                                                 <button className="btn btn-red " onClick={handlePasswordReset}>Esqueceu a senha?</button>
 
                                             </div>
-                                            
+
                                             <div className="d-flex align-items-center justify-content-center pb-4">
                                                 <p className="mb-0 me-2">Não tem uma conta?</p>
                                                 <button type="button" className="btn btn-outline-danger" ><a href="/register" id='newAccount'>Criar nova conta</a></button>
@@ -224,10 +224,13 @@ function LoginUser() {
 
                                 <div className="col-lg-6 d-flex align-items-center gradient-custom-2" id="loginSegundo" >
                                     <div className="text-white px-3 py-4 p-md-5 mx-md-4" >
-                                        <h4 className="mb-4">We are more than just a company</h4>
-                                        <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <h4 className="mb-4">Moldando o seu corpo e mente com a ajuda da tecnologia</h4>
+                                        <p className="small mb-0">Com a nossa plataforma inovadora de treinamento, você pode desenvolver habilidades físicas e
+                                         mentais em um ambiente inteligente e personalizado. Nossa tecnologia de ponta combina inteligência artificial e 
+                                         dados de treinamento para fornecer um plano de treino exclusivo e eficaz, que se adapta às suas necessidades e objetivos
+                                         . Não importa se você é um atleta de elite ou um iniciante, 
+                                         nossa plataforma é projetada para ajudá-lo a atingir o próximo nível. Junte-se a nós hoje e
+                                          comece a moldar o seu corpo e mente para o futuro.</p>
                                     </div>
                                 </div>
                             </div>

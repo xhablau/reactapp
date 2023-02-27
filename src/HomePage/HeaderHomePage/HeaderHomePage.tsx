@@ -35,8 +35,8 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
             </div>
 
             {isOpen && (
-                <aside style={{ backgroundColor: 'rgb(34, 33, 33)' }}>
-                    <div>
+                <aside style={{ backgroundColor: 'rgb(34, 33, 33)', display:'flex', flexDirection:'column' }}>
+                    <div style={{display:'flex', flexDirection:'column'}}>
                         <img src={photoUser} id="photoUser" />
                         <a className="tableHCQP">{displayName}</a>
                     </div>
@@ -44,12 +44,12 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
 
                     <nav>
                         <ul>
-                            <li><a href={plano}>Contratar Plano</a></li>
+                            <li><a href={plano} >Contratar Plano</a></li>
                             <li><a href="#">Opção 2</a></li>
                             <li><a href="#">Opção 3</a></li>
                         </ul>
                     </nav>
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={() => setIsOpen(false)}>X</button>
+                    <button type="button" style={{marginTop:'100%'}} className="btn btn-secondary btn-sm" onClick={() => setIsOpen(false)}>X</button>
                 </aside>
             )}
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import '../DaysWeek/DaysWeek.css';
+import iconeDieta from '../../../img/iconeDieta.png'
+
 
 interface PropsDiet {
     propsDiet: Array<{
@@ -10,7 +12,7 @@ interface PropsDiet {
         AfternoonSnack?: Array<string | number | boolean>;
         Dinner?: Array<string | number | boolean>;
         Supper?: Array<string | number | boolean>
-        
+
     }>;
 }
 
@@ -23,6 +25,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            borderRadius: '10px',
         },
     };
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -40,7 +43,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
     const afternoonSnack: Array<string | number | boolean> = [];
     const dinner: Array<string | number | boolean> = [];
     const supper: Array<string | number | boolean> = [];
-   
+
 
     propsDiet.forEach((dieta) => {
         if (dieta.Breakfast) {
@@ -53,7 +56,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
             dinner.push(...dieta.Dinner);
         } else if (dieta.Supper) {
             supper.push(...dieta.Supper);
-        }  else {
+        } else {
             console.log("Erro")
         }
     });
@@ -61,7 +64,8 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
     return (
         <div className='divDays'>
             <button onClick={openModal} className='btnDays'>
-                Dieta
+                <img src={iconeDieta} style={{ width: '55%' }}></img>
+                DIETA
             </button>
 
             <Modal
@@ -70,13 +74,16 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                <h2>Dieta:</h2>
-                <button onClick={closeModal}>X</button>
+                
+                <div id='divTreinoBtn'>
+                    <h2>Dieta:</h2>
+                    <button onClick={closeModal} className='btn btn-secondary btn-sm'>X</button>
+                </div>
 
 
                 {breakfast.length > 0 && (
                     <ul>
-                        cafe da manha
+                        Café da Manhã
                         <ul>
                             {breakfast.map((teste, key) => (
                                 <li key={key}>{teste}</li>
@@ -85,7 +92,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
                     </ul>
                 )}
 
-                
+
 
                 {lunch.length > 0 && (
                     <ul>
@@ -130,7 +137,7 @@ const Diet: React.FC<PropsDiet> = ({ propsDiet }) => {
                         </ul>
                     </ul>
                 )}
-               
+
 
             </Modal>
         </div>

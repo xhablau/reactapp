@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Rotas from './rotas'
-import axios from 'axios';
 
 
 window.addEventListener('unload', () => {

@@ -1,7 +1,17 @@
-#principalBodyHomePage{
+#principalBodyHomePage {
     background-color: black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+}
+
+
+@media (max-width: 670px) {
+    #principalBodyHomePage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }

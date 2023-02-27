@@ -2,8 +2,20 @@
     height: 300px;
     width: 300px;
     border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-size: xx-large;
 }
 
 .divDays{
-    margin: 3%;
+    margin: 2%;
+}
+
+#divTreinoBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
