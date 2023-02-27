@@ -53,8 +53,7 @@ function LoginUser() {
             });
     };
 
-    const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handleSignIn = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password).then(response => {
 
@@ -147,6 +146,7 @@ function LoginUser() {
             })
     }
     // para deslogar
+
     // const auth = getAuth();
     //  <button onClick={() => signOut(a)}>Sign out of Firebase</button>
 
@@ -207,7 +207,7 @@ function LoginUser() {
                                             </div>
 
                                             <div className="text-center pt-1 mb-5 pb-1">
-                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onClick={() =>handleSignIn()}>Log in</button>
+                                                <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onClick={() => handleSignIn()}>Log in</button>
                                                 <button className="btn btn-red " onClick={handlePasswordReset}>Esqueceu a senha?</button>
 
                                             </div>
