@@ -11,11 +11,6 @@ import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
 import Diet from './DaysWeek/Diet';
 
 
-
-export const isMensal: any[] = [];
-export const isTrimestral: any[] = [];
-export const isSemestral: any[] = [];
-
 function BodyHomePage() {
   const [monday, setMonday] = useState([]);
   const [tuesday, setTuesday] = useState([]);
@@ -25,14 +20,14 @@ function BodyHomePage() {
   const [saturday, setSaturday] = useState([]);
   const [sunday, setSunday] = useState([]);
   const [diet, setDiet] = useState([]);
-  
-  
+
+
 
 
   useEffect(() => {
     const getAllDays = async () => {
       try {
-        const response = await getDataFromFirestore();        
+        const response = await getDataFromFirestore();
         setMonday(response.monday);
         setTuesday(response.tuesday);
         setWednesday(response.wednesday);
@@ -41,9 +36,10 @@ function BodyHomePage() {
         setSaturday(response.saturday);
         setSunday(response.sunday);
         setDiet(response.diet);
-        isMensal.push(response.isMensal)
-        isTrimestral.push(response.isTrimestral)
-        isSemestral.push(response.isSemestral)
+        sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
+        sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
+        sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));
+        
 
       } catch (error) {
         console.error(error);
@@ -52,9 +48,9 @@ function BodyHomePage() {
 
     getAllDays();
   }, []);
-  
-  
-  
+
+
+
   return (
     <div id="principalBodyHomePage">
       <Monday propsMonday={monday} />
@@ -65,12 +61,12 @@ function BodyHomePage() {
       <Saturday propsSaturday={saturday} />
       <Sunday propsSunday={sunday} />
       <Diet propsDiet={diet} />
-    
+
     </div>
   );
 }
 export const BodyHomePageData = {
-  isPremium: [],
+
   BodyHomePage: BodyHomePage
 };
 export default BodyHomePage;

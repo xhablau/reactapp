@@ -16,6 +16,8 @@ import ThanksMensal from './Planos/ThanksMensal'
 import ThanksTrimestral from './Planos/ThanksTrimestral'
 import ThanksSemestral from './Planos/ThanksSemestral'
 import PlanosHome from './Home/Planos/PlanosHome'
+import IsPremium from './Planos/IsPremium'
+import MyBody from './HomePage/BodyHomePage/MyBody'
 
 
 initializeApp(config.firebaseConfig)
@@ -38,6 +40,8 @@ function Rotas() {
         <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
         <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
         <Route path='/planosHome' element={<PlanosHome />} />
+        <Route path='/isPremium' element={<IsPremium />} />
+        <Route path='/MyBody' element={<MyBody />} />
 
       </Routes>
     </BrowserRouter>

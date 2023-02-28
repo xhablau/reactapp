@@ -25,3 +25,20 @@ export async function getDataFromFirestore(): Promise<any> {
   return docSnap.data()
 }
 
+export async function getBodyFromFirestore(): Promise<any> {
+
+  const app = initializeApp(configApi);
+
+  const db = getFirestore(app);
+
+  const uidUser = JSON.parse(sessionStorage.getItem('uidUser') || '{}');
+
+  const docRef = doc(db, "MyBody", uidUser);
+  const docSnap = await getDoc(docRef);
+
+
+
+ 
+  return docSnap.data()
+}
+

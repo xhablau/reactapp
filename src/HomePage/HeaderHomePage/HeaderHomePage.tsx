@@ -1,20 +1,27 @@
 import '../HeaderHomePage/HeaderHomePage.css'
 import React, { useEffect, useState } from 'react';
-import { isMensal } from '../BodyHomePage/BodyHomePage';
-import { isTrimestral } from '../BodyHomePage/BodyHomePage';
-import { isSemestral } from '../BodyHomePage/BodyHomePage';
 
 
 
 
 function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; displayName: any; }) {
     const { photoUser, emailUser, uidUser, displayName } = props;
+    
+
+    const isMensal = JSON.parse(sessionStorage.getItem('isMensal') || '{}');
+    const isTrimestral = JSON.parse(sessionStorage.getItem('isTrimestral') || '{}');  
+    const isSemestral = JSON.parse(sessionStorage.getItem('isSemestral') || '{}');
+
+
 
     const [isOpen, setIsOpen] = useState(false);
     let plano
-    if (isMensal[0] === true || isTrimestral[0] === true || isSemestral[0] === true) {
-        plano = "/planos"
+    let meuPlano
+    if (isMensal === true || isTrimestral === true || isSemestral === true) {
+        plano = "/isPremium"
+        meuPlano = "Meu"
     } else {
+        meuPlano = "Contratar"
         plano = "/planos"
     }
 
@@ -44,9 +51,9 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
 
                     <nav>
                         <ul>
-                            <li><a href={plano} >Contratar Plano</a></li>
-                            <li><a href="#">Opção 2</a></li>
-                            <li><a href="#">Opção 3</a></li>
+                            <li><a href={plano} >{meuPlano} Plano</a></li>
+                            <li><a href="/HomePage">Meus Treino</a></li>
+                            <li><a href="/Mybody">Meu Corpo</a></li>
                         </ul>
                     </nav>
                     <button type="button" style={{marginTop:'100%'}} className="btn btn-secondary btn-sm" onClick={() => setIsOpen(false)}>X</button>
