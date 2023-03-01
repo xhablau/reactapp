@@ -56,7 +56,7 @@ function ThanksTrimestral() {
 
 
     return (
-        <div>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <h1>Agradecimento</h1>
             <p>Obrigado, {displayName}, pelo seu pagamento trimestral! </p>
             <p>Pedimos que peencha esse esse formulario, para nós te conhecermos melhor e entregar um treino com dieta mais especifico ao seu dia a dia  </p>

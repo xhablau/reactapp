@@ -37,8 +37,8 @@ function ThanksMensal() {
           thursday: [],
           tuesday: [],
           wednesday: [],
-          isTrimestral: true,
-          isMensal: false,
+          isTrimestral: false,
+          isMensal: true,
           isSemestral: false,
           startDate: Timestamp.fromDate(new Date()),
           finalDate: finalDate

@@ -1,5 +1,8 @@
 import '../HeaderHomePage/HeaderHomePage.css'
 import React, { useEffect, useState } from 'react';
+import { startNanoseconds, startSeconds, finalNanoseconds, finalSeconds } from '../BodyHomePage/BodyHomePage';
+
+
 
 
 
@@ -24,6 +27,29 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
         meuPlano = "Contratar"
         plano = "/planos"
     }
+
+    const timestampStart = {
+        seconds: startSeconds as any,
+        nanoseconds: startNanoseconds as any,
+    };
+
+    const millisecondsStart = (timestampStart.seconds[0] * 1000) + (timestampStart.nanoseconds[0] / 1000000);
+    const dateStart = new Date(millisecondsStart);
+
+    const timestampFinal = {
+        seconds: finalSeconds as any,
+        nanoseconds: finalNanoseconds as any
+    };
+
+    const millisecondsFinal = (+timestampFinal.seconds[0] * 1000) + Math.round(+timestampFinal.nanoseconds[0] / 1000000);
+    const dateFinal = new Date(millisecondsFinal);
+
+    const diffInMilliseconds = dateFinal.getTime() - dateStart.getTime();
+    const diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24);
+    const diffInDaysRounded = Math.round(diffInDays);
+console.log("aqui", diffInDaysRounded)
+    sessionStorage.setItem('diffDays', JSON.stringify(diffInDaysRounded));
+
 
     return (
 
