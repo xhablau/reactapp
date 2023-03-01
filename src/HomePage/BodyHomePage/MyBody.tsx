@@ -116,7 +116,7 @@ function MyBody() {
                     onChange={(event) => setPanturilha(Number(event.target.value))} type='number'></input>
                 <br></br>
 
-                <button onClick={postMyBody} className="btn btn-primary" >Enviar</button>
+                <button onClick={postMyBody} className="btn btn-danger"  style={{backgroundColor:"#cf0000"}}>Enviar</button>
             </div>)}
 
             {isOpen && (
@@ -145,7 +145,7 @@ function MyBody() {
                     <a>{bodyInfo.panturilha} cm</a>
                     <br></br>
                     
-                    <button onClick={resetInfoBody} className="btn btn-primary" >Mudar minhas medidas!</button>
+                    <button onClick={resetInfoBody}  className="btn btn-danger"  style={{backgroundColor:"#cf0000"}}>Mudar minhas medidas!</button>
                 </div>
             )}
 
