@@ -10,6 +10,10 @@ import '../BodyHomePage/BodyHomePage.css';
 import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
 import Diet from './DaysWeek/Diet';
 
+export const startNanoseconds: any[] = [];
+export const startSeconds: any[] = [];
+export const finalNanoseconds: any[] = [];
+export const finalSeconds: any[] = [];
 
 function BodyHomePage() {
   const [monday, setMonday] = useState([]);
@@ -39,7 +43,10 @@ function BodyHomePage() {
         sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
         sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
         sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));
-        
+        startSeconds.push(response.startDate.seconds)
+        startNanoseconds.push(response.startDate.nanoseconds)
+        finalSeconds.push(response.finalDate.seconds)
+        finalNanoseconds.push(response.finalDate.nanoseconds)
 
       } catch (error) {
         console.error(error);
