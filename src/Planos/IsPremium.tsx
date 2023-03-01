@@ -16,11 +16,13 @@ function IsPremium() {
      let mensalidade
 
     if (isMensal === true ){
-      mensalidade = "Mensal"
+      mensalidade = " no plano Mensal"
     } else if (isTrimestral === true) {
-      mensalidade = "Trimestral"
+      mensalidade = " no plano Trimestral"
     } else if (isSemestral === true) {
-      mensalidade = "Semestral"
+      mensalidade = " no plano Semestral"
+    } else{
+      mensalidade =""
     }
 
 
@@ -33,7 +35,7 @@ function IsPremium() {
           uidUser={uidUser}
           displayName={displayName}/>
           <div>
-            {displayName} você é usuário Premium no plano {mensalidade}! Falta {diffDays} dias para terminar o seu premium. 
+            {displayName} você é usuário Premium{mensalidade}! Falta {diffDays} dias para terminar o seu premium. 
           </div>
 
         </div>
