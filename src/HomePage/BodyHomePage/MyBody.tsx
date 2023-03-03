@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import React, { useState, useEffect } from 'react';
 import HeaderHomePage from "../HeaderHomePage/HeaderHomePage";
 import { getBodyFromFirestore } from "../../FirestoreApi/FirestoreApi";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function MyBody() {
     const photoUser = JSON.parse(sessionStorage.getItem('photoUser') || '{}');
@@ -21,8 +22,15 @@ function MyBody() {
         try {
             const response = await getFirestore();
             const infoMyBody = collection(response, "MyBody");
+            const auth = getAuth();
+            const user = auth.currentUser;
 
-            await setDoc(doc(infoMyBody, uidUser), {
+            if (!user) {
+                // Se não houver nenhum usuário autenticado, redireciona para a página de login
+                return;
+            }
+
+            await setDoc(doc(infoMyBody, user.uid), {
                 biceps,
                 antebraco,
                 peito,
@@ -44,29 +52,41 @@ function MyBody() {
         coxa: 0,
         panturilha: 0,
     });
-
     useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                getAllDays();
+            } else {
+                window.location.href = "/login";
+            }
+        });
+
         const getAllDays = async () => {
             try {
+                const auth = getAuth();
+                const user = auth.currentUser; // Obtém o usuário autenticado atualmente
+                if (!user) {
+                    // Se não houver nenhum usuário autenticado, sai do método
+                    return;
+                }
                 const response = await getBodyFromFirestore();
                 setBodyInfo(response);
                 if (response === undefined) {
-                    console.log("Vazio")
+                    console.log("Erro")
                 } else {
                     setIsOpen(true)
                     setIsOpenForm(false)
-
                 }
 
             } catch (error) {
                 console.error(error);
             }
         };
-        getAllDays();
-    }, []);
 
-    // const isOpen = Object.values(bodyInfo).some((value) => value !== 0);
-    // const isOpenForm = Object.values(bodyInfo).some((value) => value === 0);
+        return () => unsubscribe();
+    }, []);
+    
 
     function resetInfoBody() {
         setIsOpen(false)
@@ -116,7 +136,7 @@ function MyBody() {
                     onChange={(event) => setPanturilha(Number(event.target.value))} type='number'></input>
                 <br></br>
 
-                <button onClick={postMyBody} className="btn btn-danger"  style={{backgroundColor:"#cf0000"}}>Enviar</button>
+                <button onClick={postMyBody} className="btn btn-danger" style={{ backgroundColor: "#cf0000" }}>Enviar</button>
             </div>)}
 
             {isOpen && (
@@ -144,8 +164,8 @@ function MyBody() {
                     <a>O diametro da sua Panturilha </a>
                     <a>{bodyInfo.panturilha} cm</a>
                     <br></br>
-                    
-                    <button onClick={resetInfoBody}  className="btn btn-danger"  style={{backgroundColor:"#cf0000"}}>Mudar minhas medidas!</button>
+
+                    <button onClick={resetInfoBody} className="btn btn-danger" style={{ backgroundColor: "#cf0000" }}>Mudar minhas medidas!</button>
                 </div>
             )}
 

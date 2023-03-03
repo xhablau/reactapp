@@ -49,7 +49,7 @@ function LoginUser() {
 
             })
             .catch((error) => {
-                console.log("DEU RUIM", error.message);
+                console.log(error.message);
             });
     };
 

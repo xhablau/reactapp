@@ -26,7 +26,6 @@ function IsPremium() {
   } else {
     mensalidade = ""
   }
-  console.log("oie", diffDays)
 
   if (diffDays === null) {
     dias = ""

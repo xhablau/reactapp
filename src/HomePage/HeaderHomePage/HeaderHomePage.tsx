@@ -47,7 +47,6 @@ function HeaderHomePage(props: { photoUser: any; emailUser: any; uidUser: any; d
     const diffInMilliseconds = dateFinal.getTime() - dateStart.getTime();
     const diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24);
     const diffInDaysRounded = Math.round(diffInDays);
-console.log("aqui", diffInDaysRounded)
     sessionStorage.setItem('diffDays', JSON.stringify(diffInDaysRounded));
 
 

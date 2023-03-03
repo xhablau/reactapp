@@ -9,6 +9,10 @@ import Wednesday from './DaysWeek/Wednesday';
 import '../BodyHomePage/BodyHomePage.css';
 import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
 import Diet from './DaysWeek/Diet';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { configApi } from '../../config/config';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 export const startNanoseconds: any[] = [];
 export const startSeconds: any[] = [];
@@ -25,38 +29,42 @@ function BodyHomePage() {
   const [sunday, setSunday] = useState([]);
   const [diet, setDiet] = useState([]);
 
-
-
-
   useEffect(() => {
-    const getAllDays = async () => {
-      try {
-        const response = await getDataFromFirestore();
-        setMonday(response.monday);
-        setTuesday(response.tuesday);
-        setWednesday(response.wednesday);
-        setThursday(response.thursday);
-        setFriday(response.friday);
-        setSaturday(response.saturday);
-        setSunday(response.sunday);
-        setDiet(response.diet);
-        sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
-        sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
-        sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));
-        startSeconds.push(response.startDate.seconds)
-        startNanoseconds.push(response.startDate.nanoseconds)
-        finalSeconds.push(response.finalDate.seconds)
-        finalNanoseconds.push(response.finalDate.nanoseconds)
-
-      } catch (error) {
-        console.error(error);
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        getAllDays();
+      } else {
+        window.location.href = "/login";
       }
-    };
+    });
 
-    getAllDays();
+    return () => unsubscribe();
   }, []);
 
+  const getAllDays = async () => {
+    try {
+      const response = await getDataFromFirestore();
+      setMonday(response.monday);
+      setTuesday(response.tuesday);
+      setWednesday(response.wednesday);
+      setThursday(response.thursday);
+      setFriday(response.friday);
+      setSaturday(response.saturday);
+      setSunday(response.sunday);
+      setDiet(response.diet);
+      sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
+      sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
+      sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));
+      startSeconds.push(response.startDate.seconds)
+      startNanoseconds.push(response.startDate.nanoseconds)
+      finalSeconds.push(response.finalDate.seconds)
+      finalNanoseconds.push(response.finalDate.nanoseconds)
 
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div id="principalBodyHomePage">
@@ -68,10 +76,10 @@ function BodyHomePage() {
       <Saturday propsSaturday={saturday} />
       <Sunday propsSunday={sunday} />
       <Diet propsDiet={diet} />
-
     </div>
   );
 }
+
 export const BodyHomePageData = {
 
   BodyHomePage: BodyHomePage

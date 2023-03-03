@@ -8,7 +8,6 @@ function HomePage() {
      const uidUser = JSON.parse(sessionStorage.getItem('uidUser') || '{}');
      const displayName = JSON.parse(sessionStorage.getItem('displayName') || '{}');
 
-     console.log("ain", displayName)
     
     return (
 
