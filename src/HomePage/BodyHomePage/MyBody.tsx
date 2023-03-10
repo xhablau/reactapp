@@ -165,7 +165,7 @@ function MyBody() {
                     <a>{bodyInfo.panturilha} cm</a>
                     <br></br>
 
-                    <button onClick={resetInfoBody} className="btn btn-danger" style={{ backgroundColor: "#cf0000" }}>Mudar minhas medidas!</button>
+                    <button onClick={resetInfoBody} className="btn btn-danger" style={{ backgroundColor: "#cf0000", marginTop:'10%' }}>Mudar minhas medidas!</button>
                 </div>
             )}
 
