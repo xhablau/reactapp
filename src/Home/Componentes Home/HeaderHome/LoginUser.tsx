@@ -185,10 +185,10 @@ function LoginUser() {
                                                         <img src={googleimg} style={{ width: '60%' }}></img>
                                                     </button>
 
-                                                    <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitTwitter()} disabled={authing}>
+                                                    {/* <button type="button" className="btn btn-link btn-floating mx-1" onClick={() => singInWhitTwitter()} disabled={authing}> */}
                                                         {/* <i className="fab fa-twitter">twitter</i> */}
-                                                        <img src={twitterimg} style={{ width: '60%' }}></img>
-                                                    </button>
+                                                        {/* <img src={twitterimg} style={{ width: '60%' }}></img> */}
+                                                    {/* </button> */}
                                                 </div>
                                             </div>
 

@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { Stripe } from 'stripe';
 import express from 'express';
 import HeaderHomePage from '../HomePage/HeaderHomePage/HeaderHomePage';
+import { configApiStripe } from '../config/config';
 
 function Planos() {
   const photoUser = JSON.parse(sessionStorage.getItem('photoUser') || '{}');
   const emailUser = JSON.parse(sessionStorage.getItem('emailUser') || '{}');
   const uidUser = JSON.parse(sessionStorage.getItem('uidUser') || '{}');
   const displayName = JSON.parse(sessionStorage.getItem('displayName') || '{}');
+  configApiStripe
 
   async function mensal() {
-    const stripe = new Stripe('sk_test_51MbS1hGQkyUss98h7e3Ga3NhuhcSpp2t4XdSYOL9w3EeViI1bxO0ukS5Pfuc7JR6xmLX6Ut6tYChHTeB9Asuw49c00GJ6vQ4E7', {
+    
+    const stripe = new Stripe(configApiStripe.apiKey, {
       apiVersion: '2022-11-15',
     });
 
-    const YOUR_DOMAIN = 'https://mypersonal-40ff3.web.app/';
+    const YOUR_DOMAIN = 'https://meupersonal.fitness//';
 
     try {
       const session = await stripe.checkout.sessions.create({
         billing_address_collection: 'auto',
         line_items: [
           {
-            price: "price_1Mc6V0GQkyUss98h26MeKxfP",
+            price: "price_1Mj2zkGQkyUss98hnzewiZUC",
             // For metered billing, do not pass quantity
             quantity: 1,
           },
@@ -38,11 +41,11 @@ function Planos() {
   }
 
   async function trimestral() {
-    const stripe = new Stripe('sk_test_51MbS1hGQkyUss98h7e3Ga3NhuhcSpp2t4XdSYOL9w3EeViI1bxO0ukS5Pfuc7JR6xmLX6Ut6tYChHTeB9Asuw49c00GJ6vQ4E7', {
+    const stripe = new Stripe(configApiStripe.apiKey, {
       apiVersion: '2022-11-15',
     });
 
-    const YOUR_DOMAIN = 'https://mypersonal-40ff3.web.app/';
+    const YOUR_DOMAIN = 'https://meupersonal.fitness//';
 
 
     try {
@@ -51,7 +54,7 @@ function Planos() {
         billing_address_collection: 'auto',
         line_items: [
           {
-            price: "price_1Mc6ViGQkyUss98h5YFLu57d",
+            price: "price_1Mj2xGGQkyUss98hNlB4qLiB",
             // For metered billing, do not pass quantity
             quantity: 1,
 
@@ -68,11 +71,11 @@ function Planos() {
   }
 
   async function semestral() {
-    const stripe = new Stripe('sk_test_51MbS1hGQkyUss98h7e3Ga3NhuhcSpp2t4XdSYOL9w3EeViI1bxO0ukS5Pfuc7JR6xmLX6Ut6tYChHTeB9Asuw49c00GJ6vQ4E7', {
+    const stripe = new Stripe(configApiStripe.apiKey, {
       apiVersion: '2022-11-15',
     });
 
-    const YOUR_DOMAIN = 'https://mypersonal-40ff3.web.app/';
+    const YOUR_DOMAIN = 'https://meupersonal.fitness//';
 
 
     try {
@@ -81,7 +84,7 @@ function Planos() {
         billing_address_collection: 'auto',
         line_items: [
           {
-            price: "price_1Mc6WPGQkyUss98hL7bWGbV2",
+            price: "price_1Mj2wUGQkyUss98hCptHgJg0",
             // For metered billing, do not pass quantity
             quantity: 1,
 

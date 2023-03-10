@@ -20,3 +20,8 @@ export const configApi = {
   measurementId: "G-MND5Q5JHT2"
 }
 
+export const configApiStripe = {
+  apiKey: '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'
+}
+
+
