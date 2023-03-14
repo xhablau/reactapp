@@ -20,29 +20,18 @@ function ThanksMensal() {
 
     return () => unsubscribe();
   }, []);
+
+
   const getAllDays = async () => {
     try {
       const response = await getFirestore();
-      const citiesRef = collection(response, "User");
+      const citiesRef = collection(response, "DateUser");
       const date = new Date();
       date.setMonth(date.getMonth() + 1);
       const finalDate = Timestamp.fromDate(date);
 
       await setDoc(doc(citiesRef, uidUser), {
-        diet: [{ Breakfast: [] },
-        { BreakLunch: [] },
-        { Lunch: [] },
-        { AfternoonSnack: [] },
-        { Dinner: [] },
-        { Supper: [] }
-        ],
-        friday: [],
-        monday: [],
-        saturday: [],
-        sunday: [],
-        thursday: [],
-        tuesday: [],
-        wednesday: [],
+       
         isTrimestral: false,
         isMensal: true,
         isSemestral: false,

@@ -7,7 +7,7 @@ import Thursday from './DaysWeek/Thursday';
 import Tuesday from './DaysWeek/Tuesday';
 import Wednesday from './DaysWeek/Wednesday';
 import '../BodyHomePage/BodyHomePage.css';
-import { getDataFromFirestore } from '../../FirestoreApi/FirestoreApi';
+import { getDataFromFirestore, getDateUserFromFirestore } from '../../FirestoreApi/FirestoreApi';
 import Diet from './DaysWeek/Diet';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { configApi } from '../../config/config';
@@ -34,6 +34,7 @@ function BodyHomePage() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         getAllDays();
+        getDateUser();
       } else {
         window.location.href = "/login";
       }
@@ -53,6 +54,23 @@ function BodyHomePage() {
       setSaturday(response.saturday);
       setSunday(response.sunday);
       setDiet(response.diet);
+      sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
+      sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
+      sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));
+      startSeconds.push(response.startDate.seconds)
+      startNanoseconds.push(response.startDate.nanoseconds)
+      finalSeconds.push(response.finalDate.seconds)
+      finalNanoseconds.push(response.finalDate.nanoseconds)
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getDateUser = async () => {
+    try {
+      const response = await getDateUserFromFirestore();
+    
       sessionStorage.setItem('isMensal', JSON.stringify(response.isMensal));
       sessionStorage.setItem('isTrimestral', JSON.stringify(response.isTrimestral));
       sessionStorage.setItem('isSemestral', JSON.stringify(response.isSemestral));

@@ -19,6 +19,7 @@ import PlanosHome from './Home/Planos/PlanosHome'
 import IsPremium from './Planos/IsPremium'
 import MyBody from './HomePage/BodyHomePage/MyBody'
 import PoliticaPrivacidade from './Home/PoliticaPrivacidade'
+import CreateUser from './Planos/CreateUser'
 
 
 initializeApp(config.firebaseConfig)
@@ -44,6 +45,7 @@ function Rotas() {
         <Route path='/isPremium' element={<IsPremium />} />
         <Route path='/MyBody' element={<MyBody />} />
         <Route path='/PoliticadePrivacidade' element={<PoliticaPrivacidade />} />
+        <Route path='/WRbgvpVhLwX2gc4MNHgejoGn1UE3' element={<CreateUser />} />
 
 
       </Routes>

@@ -24,26 +24,13 @@ function ThanksTrimestral() {
     const getAllDays = async () => {
         try {
             const response = await getFirestore();
-            const citiesRef = collection(response, "User");
+            const citiesRef = collection(response, "DateUser");
             const date = new Date();
             date.setMonth(date.getMonth() + 3);
             const finalDate = Timestamp.fromDate(date);
 
             await setDoc(doc(citiesRef, uidUser), {
-                diet: [{ Breakfast: [] },
-                { BreakLunch: [] },
-                { Lunch: [] },
-                { AfternoonSnack: [] },
-                { Dinner: [] },
-                { Supper: [] }
-                ],
-                friday: [],
-                monday: [],
-                saturday: [],
-                sunday: [],
-                thursday: [],
-                tuesday: [],
-                wednesday: [],
+                
                 isTrimestral: true,
                 isMensal: false,
                 isSemestral: false,
