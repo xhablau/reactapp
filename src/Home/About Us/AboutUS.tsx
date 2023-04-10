@@ -25,7 +25,7 @@ function AboutUs() {
                     </h1>
                     <div id='txtAboutUs'>
                         
-                            O nosso site foi criado com o objetivo de ajudar as pessoas a alcançar seus objetivos de fitness de forma eficiente e personalizada.
+                            O nosso site foi criado com o objetivo de ajudar as pessoas a alcançar seus objetivos de forma eficiente e personalizada.
                             Nós acreditamos que todos merecem ter acesso a um programa de treinamento e dieta de alta qualidade,
                             e é por isso que usamos a tecnologia da inteligência artificial para criar planos personalizados para cada um de nossos usuários.
                             Não importa qual seja o seu objetivo - seja perder peso, ganhar músculos ou apenas ficar mais saudável -,

@@ -30,7 +30,7 @@ function Planos() {
           },
         ],
         mode: 'subscription',
-        success_url: `${YOUR_DOMAIN}/welcomeMesal`,
+        success_url: `${YOUR_DOMAIN}/welcomeMensal`,
         cancel_url: `${YOUR_DOMAIN}?canceled=true`,
       });
       window.location.assign(session?.url || '');
@@ -116,7 +116,7 @@ function Planos() {
             <h1 className="card-title pricing-card-title">R$21,90 <small className="text-muted">/ mês</small></h1>
             <ul className="list-unstyled mt-3 mb-4">
               <li>Treino exclusivo</li>
-              <li>Dieta exclusivo</li>
+              <li>Dieta exclusiva</li>
               <li>Suporte por Whatsapp</li>
             </ul>
             <button type="button" className="btn btn-lg btn-block btn-outline-primary" onClick={mensal}>Contratar</button>
@@ -131,7 +131,7 @@ function Planos() {
             <div><h4>15% </h4> <h6> de desconto </h6> </div>
             <ul className="list-unstyled mt-3 mb-4">
               <li>Treino exclusivo</li>
-              <li>Dieta exclusivo</li>
+              <li>Dieta exclusiva</li>
               <li>Suporte por Whatsapp</li>
             </ul>
             <button type="button" className="btn btn-lg btn-block btn-primary" onClick={trimestral}>Contratar</button>
@@ -146,7 +146,7 @@ function Planos() {
             <div><h4>20% </h4> <h6> de desconto </h6> </div>
             <ul className="list-unstyled mt-3 mb-4">
               <li>Treino exclusivo</li>
-              <li>Dieta exclusivo</li>
+              <li>Dieta exclusiva</li>
               <li>Suporte por Whatsapp</li>
             </ul>
             <button type="button" className="btn btn-lg btn-block btn-primary" onClick={semestral}>Contratar</button>

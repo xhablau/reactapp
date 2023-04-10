@@ -20,6 +20,7 @@ import IsPremium from './Planos/IsPremium'
 import MyBody from './HomePage/BodyHomePage/MyBody'
 import PoliticaPrivacidade from './Home/PoliticaPrivacidade'
 import CreateUser from './Planos/CreateUser'
+import ThanksFree from './Planos/ThanksFree'
 
 
 initializeApp(config.firebaseConfig)
@@ -41,6 +42,7 @@ function Rotas() {
         <Route path='/welcomeMensal' element={<ThanksMensal />} />
         <Route path='/welcomeTrimestral' element={<ThanksTrimestral />} />
         <Route path='/welcomeSemestral' element={<ThanksSemestral />} />
+        <Route path='/welcomeFree' element={<ThanksFree />} />
         <Route path='/planosHome' element={<PlanosHome />} />
         <Route path='/isPremium' element={<IsPremium />} />
         <Route path='/MyBody' element={<MyBody />} />

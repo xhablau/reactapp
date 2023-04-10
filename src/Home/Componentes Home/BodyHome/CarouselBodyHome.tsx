@@ -16,14 +16,14 @@ function CarouselBodyHome() {
     return (
         <div>
             <Carousel style={{marginTop:'6.91%'}}>
-                <Carousel.Item style={{paddingLeft:'8%'}}>
-                    <img src={imgMedidas} id="img"  ></img>
+                <Carousel.Item >
+                    <img src={imgMedidas} id="img" style={{marginTop:'6.91%', width:'90%', marginLeft:'5%'}} ></img>
                 </Carousel.Item>
                 <Carousel.Item style={{paddingLeft:'8%'}}>
-                    <img src={imgPrincipal} id="img"  ></img>
+                    <img src={imgPrincipal} id="img"  style={{marginTop:'6.91%', width:'90%'}}></img>
                 </Carousel.Item>
                 <Carousel.Item style={{paddingLeft:'8%'}}>
-                    <img src={imgTreino} id="img"  ></img>
+                    <img src={imgTreino} id="img"  style={{marginTop:'6.91%', width:'90%'}}></img>
                 </Carousel.Item>
             </Carousel>
         </div>
